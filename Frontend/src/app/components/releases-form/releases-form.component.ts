@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Releases } from '../../models';
+import { OpcionesService } from '../../services/opciones.service';
 
 @Component({
   selector: 'app-releases-form',
@@ -9,11 +10,13 @@ import { Releases } from '../../models';
 export class ReleasesFormComponent implements OnInit {
   titulo = 'Releases';
   releases: Releases;
-  opciones = ['N/A', 'SI', 'NO'];
-  constructor() {
+  opciones: string[];
+  constructor(private opcionesService: OpcionesService) {
     this.releases = new Releases(0);
   }
+
   ngOnInit() {
+    this.opciones = this.opcionesService.getOpciones();
   }
 
 }

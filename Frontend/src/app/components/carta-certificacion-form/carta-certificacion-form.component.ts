@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartaDeCertificacion } from '../../models';
+import { OpcionesService } from '../../services/opciones.service';
 
 @Component({
   selector: 'app-carta-certificacion-form',
@@ -9,11 +10,13 @@ import { CartaDeCertificacion } from '../../models';
 export class CartaCertificacionFormComponent implements OnInit {
   titulo = 'Carta de Certificación';
   cartaDeCertificacion: CartaDeCertificacion;
-  opciones = ['N/A', 'SI', 'NO'];
-  constructor() {
+  opciones: string[];
+  constructor(private opcionesService: OpcionesService) {
     this.cartaDeCertificacion = new CartaDeCertificacion(0);
   }
+
   ngOnInit() {
+    this.opciones = this.opcionesService.getOpciones();
   }
 
 }

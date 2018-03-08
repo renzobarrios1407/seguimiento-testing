@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usd } from '../../models';
+import { OpcionesService } from '../../services/opciones.service';
 
 @Component({
   selector: 'app-usd-form',
@@ -10,12 +11,13 @@ export class UsdFormComponent implements OnInit {
   titulo = 'Orden de Cambio';
   tituloIncidentes = 'Incidentes';
   usd: Usd;
-  opciones = ['N/A', 'SI', 'NO'];
-  constructor() {
+  opciones: string[];
+  constructor(private opcionesService: OpcionesService) {
     this.usd = new Usd(0);
   }
 
   ngOnInit() {
+    this.opciones = this.opcionesService.getOpciones();
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Requirements } from '../../models';
+import { OpcionesService } from '../../services/opciones.service';
 
 @Component({
   selector: 'app-requirements-form',
@@ -10,12 +11,13 @@ export class RequirementsFormComponent implements OnInit {
 
   titulo = 'Releases';
   requirements: Requirements;
-  opciones = ['N/A', 'SI', 'NO'];
-  constructor() {
+  opciones: string[];
+  constructor(private opcionesService: OpcionesService) {
     this.requirements = new Requirements(0);
   }
 
   ngOnInit() {
+    this.opciones = this.opcionesService.getOpciones();
   }
 
 }

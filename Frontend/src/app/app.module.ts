@@ -19,6 +19,7 @@ import { CartaCertificacionFormComponent } from './components/carta-certificacio
 import { RepositorioFormComponent } from './components/repositorio-form/repositorio-form.component';
 import { DodDdtVstsFormComponent } from './components/dod-ddt-vsts-form/dod-ddt-vsts-form.component';
 import { UsdFormComponent } from './components/usd-form/usd-form.component';
+import { OpcionesService } from './services/opciones.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { UsdFormComponent } from './components/usd-form/usd-form.component';
     FeatureRoutingModule
     // MaterialModule
   ],
-  providers: [],
+  providers: [OpcionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

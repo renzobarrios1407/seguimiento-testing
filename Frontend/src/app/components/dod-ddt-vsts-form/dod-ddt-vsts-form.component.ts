@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoDDdTVSTS } from '../../models';
+import { OpcionesService } from '../../services/opciones.service';
 
 @Component({
   selector: 'app-dod-ddt-vsts-form',
@@ -9,12 +10,13 @@ import { DoDDdTVSTS } from '../../models';
 export class DodDdtVstsFormComponent implements OnInit {
   titulo = 'DoD/DdT(VSTS)';
   doDDdTVSTS: DoDDdTVSTS;
-  opciones = ['N/A', 'SI', 'NO'];
-  constructor() {
+  opciones: string[];
+  constructor(private opcionesService: OpcionesService) {
     this.doDDdTVSTS = new DoDDdTVSTS(0);
   }
 
   ngOnInit() {
+    this.opciones = this.opcionesService.getOpciones();
   }
 
 }
