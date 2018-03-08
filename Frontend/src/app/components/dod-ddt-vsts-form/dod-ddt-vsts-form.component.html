@@ -1,0 +1,71 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="doD">DoD</label>
+            <input type="number" id="doD" class="form-control" [(ngModel)]="doDDdTVSTS.doD" name="doD" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estandarDeNombCartDoDDdt">Estandar de nombramiento de la carta en el DoD\Ddt</label>
+            <select id="estandarDeNombCartDoDDdt" class="custom-select form-control" [(ngModel)]="doDDdTVSTS.estandarDeNombCartDoDDdt" name="estandarDeNombCartDoDDdt">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="existCartDoD">Existe Carta en el DoD</label>
+            <select id="existCartDoD" class="custom-select" [(ngModel)]="doDDdTVSTS.existCartDoD" name="existCartDoD">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tipoCartDoDAcrdTipoDeCert">Tipo de carta en el DoD de acuerdo al tipo de certificación</label>
+            <select id="tipoCartDoDAcrdTipoDeCert" class="custom-select" [(ngModel)]="doDDdTVSTS.tipoCartDoDAcrdTipoDeCert" name="tipoCartDoDAcrdTipoDeCert">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="elDoDTieneFechaDeVencCartaYCoincdConCart">El DoD tiene la fecha de vencimiento de la carta y coincide con la que está en la carta</label>
+            <select id="elDoDTieneFechaDeVencCartaYCoincdConCart" class="custom-select" [(ngModel)]="doDDdTVSTS.elDoDTieneFechaDeVencCartaYCoincdConCart" name="elDoDTieneFechaDeVencCartaYCoincdConCart">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="existeAprobUserEnDoD">Existe aprobación de usuario en el DoD</label>
+            <select id="existeAprobUserEnDoD" class="custom-select" [(ngModel)]="doDDdTVSTS.existeAprobUserEnDoD" name="existeAprobUserEnDoD">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="existeAprobJefeEnCertDoD">Existe aprobación de jefe de Certificación en el DoD</label>
+            <select id="existeAprobJefeEnCertDoD" class="custom-select" [(ngModel)]="doDDdTVSTS.existeAprobJefeEnCertDoD" name="existeAprobJefeEnCertDoD">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="closed">Closed</label>
+            <select id="closed" class="custom-select" [(ngModel)]="doDDdTVSTS.closed" name="closed">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

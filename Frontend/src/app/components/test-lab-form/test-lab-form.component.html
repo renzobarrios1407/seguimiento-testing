@@ -1,0 +1,25 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="pasosDeCasosPruebaEjecutados">Los pasos de los casos de prueba están ejecutados</label>
+            <select id="pasosDeCasosPruebaEjecutados" class="custom-select form-control" [(ngModel)]="testLab.pasosDeCasosPruebaEjecutados" name="pasosDeCasosPruebaEjecutados">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="casosPruebaTienenEstadoFinal">Los casos de prueba tienen estado final</label>
+            <select id="casosPruebaTienenEstadoFinal" class="custom-select form-control" [(ngModel)]="testLab.casosPruebaTienenEstadoFinal" name="casosPruebaTienenEstadoFinal">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

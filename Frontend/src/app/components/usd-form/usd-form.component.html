@@ -1,0 +1,32 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="numOrdenCambio"># de Orden de Cambio</label>
+            <input type="number" id="numOrdenCambio" class="form-control" [(ngModel)]="usd.numOrdenCambio" name="numOrdenCambio" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="campoCodDefTermi">Campo Código Definición de Terminado</label>
+            <select id="campoCodDefTermi" class="custom-select form-control" [(ngModel)]="usd.campoCodDefTermi" name="campoCodDefTermi">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <app-title class="mx-auto" [titulo]="tituloIncidentes"></app-title>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="incdntsPorBugsEstNotResolved">Incidentes por Bugs en estado "Not Resolved"</label>
+            <select id="incdntsPorBugsEstNotResolved" class="custom-select" [(ngModel)]="usd.incdntsPorBugsEstNotResolved" name="incdntsPorBugsEstNotResolved">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

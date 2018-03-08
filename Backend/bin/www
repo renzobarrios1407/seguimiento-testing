@@ -25,6 +25,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 models.sequelize.sync().then(function () {
+console.log("conectado a la BD");
 
   //Se crean las tablas
   

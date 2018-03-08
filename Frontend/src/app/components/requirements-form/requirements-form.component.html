@@ -1,0 +1,41 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tieneAlcOEstratAcrdAlSprORelFin">Tiene Alcance/Estrategia acorde al Sprint/Release finalizado</label>
+            <select id="tieneAlcOEstratAcrdAlSprORelFin" class="custom-select form-control" [(ngModel)]="requirements.tieneAlcOEstratAcrdAlSprORelFin" name="tieneAlcOEstratAcrdAlSprORelFin">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tieneRiesgosDeProdPorSprORel">Tiene riesgos de producto por Sprint\Release</label>
+            <select id="tieneRiesgosDeProdPorSprORel" class="custom-select form-control" [(ngModel)]="requirements.tieneRiesgosDeProdPorSprORel" name="tieneRiesgosDeProdPorSprORel">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tieneAnalisisRiesgosAcrdAlcProb">Tiene un analisis de riesgos acorde al alcance probado</label>
+            <select id="tieneAnalisisRiesgosAcrdAlcProb" class="custom-select" [(ngModel)]="requirements.tieneAnalisisRiesgosAcrdAlcProb" name="tieneAnalisisRiesgosAcrdAlcProb">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estadoRiesgoEqCerrado">Estado del Riesgo = Cerrado</label>
+            <select id="estadoRiesgoEqCerrado" class="custom-select" [(ngModel)]="requirements.estadoRiesgoEqCerrado" name="estadoRiesgoEqCerrado">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="defectoDetectAsignAlCicOSpr">Defecto detectado asignado al ciclo\sprint</label>
+            <select id="defectoDetectAsignAlCicOSpr" class="custom-select form-control" [(ngModel)]="defects.defectoDetectAsignAlCicOSpr" name="defectoDetectAsignAlCicOSpr">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="defectoDetectAsignAlRel">Defecto detectado asignado al release</label>
+            <select id="defectoDetectAsignAlRel" class="custom-select form-control" [(ngModel)]="defects.defectoDetectAsignAlRel" name="defectoDetectAsignAlRel">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="defctsEncontTienenEstFinal">Los defectos encontrados tienen estado final</label>
+            <select id="defctsEncontTienenEstFinal" class="custom-select" [(ngModel)]="defects.defctsEncontTienenEstFinal" name="defctsEncontTienenEstFinal">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="defctsAsignASubject">Defectos asignado a subject</label>
+            <select id="defctsAsignASubject" class="custom-select" [(ngModel)]="defects.defctsAsignASubject" name="defctsAsignASubject">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="analisisDeRiesgoxBugsEnEstNotResolved">Análisis de riesgo por Bugs en estado "Not Resolved"</label>
+            <select id="analisisDeRiesgoxBugsEnEstNotResolved" class="custom-select" [(ngModel)]="defects.analisisDeRiesgoxBugsEnEstNotResolved" name="analisisDeRiesgoxBugsEnEstNotResolved">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

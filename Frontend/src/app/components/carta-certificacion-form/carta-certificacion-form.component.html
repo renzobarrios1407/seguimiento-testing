@@ -1,0 +1,57 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="ultimoFormatoDeCarta">Último formato de carta</label>
+            <select id="ultimoFormatoDeCarta" class="custom-select form-control" [(ngModel)]="cartaDeCertificacion.ultimoFormatoDeCarta" name="ultimoFormatoDeCarta">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estandarDeNombramiento">Estándar de nombramiento</label>
+            <select id="estandarDeNombramiento" class="custom-select form-control" [(ngModel)]="cartaDeCertificacion.estandarDeNombramiento" name="estandarDeNombramiento">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="diligenCompletoCamposCarta">Diligenciamiento completo de campos en la Carta</label>
+            <select id="diligenCompletoCamposCarta" class="custom-select" [(ngModel)]="cartaDeCertificacion.diligenCompletoCamposCarta" name="diligenCompletoCamposCarta">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="concptPruebasEspecialiCarta">Concepto de pruebas Especializadas en la carta</label>
+            <select id="concptPruebasEspecialiCarta" class="custom-select" [(ngModel)]="cartaDeCertificacion.concptPruebasEspecialiCarta" name="concptPruebasEspecialiCarta">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="aprobacionEnCarta">Aprobación en carta</label>
+            <select id="aprobacionEnCarta" class="custom-select" [(ngModel)]="cartaDeCertificacion.aprobacionEnCarta" name="aprobacionEnCarta">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="numsIncidntsIncludsCartCert">Número(s) de incidente(s) incluído(s) en carta de certificación</label>
+            <select id="numsIncidntsIncludsCartCert" class="custom-select" [(ngModel)]="cartaDeCertificacion.numsIncidntsIncludsCartCert" name="numsIncidntsIncludsCartCert">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

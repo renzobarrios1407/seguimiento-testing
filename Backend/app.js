@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 //Importacion de rutas
-var users = require('./routers/usuarios');
 
 var app = express();
 
@@ -26,7 +25,6 @@ app.use((req, res, next) => {
 })
 
 //Uso de Middlewares de rutas
-app.use('/usuarios', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

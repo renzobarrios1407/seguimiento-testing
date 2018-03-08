@@ -1,0 +1,71 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="rutaRepositorio">Ruta del repositorio</label>
+            <input type="text" id="rutaRepositorio" class="form-control" [(ngModel)]="repositorio.rutaRepositorio" name="rutaRepositorio" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estandarDeNombramiento">Estándar de nombramiento</label>
+            <select id="estandarDeNombramiento" class="custom-select form-control" [(ngModel)]="repositorio.estandarDeNombramiento" name="estandarDeNombramiento">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="carptYEstrucCarptsRepo">Carpeta y estructura de carpetas en repositorio</label>
+            <select id="carptYEstrucCarptsRepo" class="custom-select" [(ngModel)]="repositorio.carptYEstrucCarptsRepo" name="carptYEstrucCarptsRepo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="ultVerFormatListCheckPE">Última versión formato Lista de Chequeo P.E.</label>
+            <select id="ultVerFormatListCheckPE" class="custom-select" [(ngModel)]="repositorio.ultVerFormatListCheckPE" name="ultVerFormatListCheckPE">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="existeListCheckPEcarptFuncSprORel">Existe Lista de Chequeo P.E en la carpeta funcional (Sprint/Release)</label>
+            <select id="existeListCheckPEcarptFuncSprORel" class="custom-select" [(ngModel)]="repositorio.existeListCheckPEcarptFuncSprORel" name="existeListCheckPEcarptFuncSprORel">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="aprobUserRepoPorBugsEstNotResolved">Aprobación de usuario en repositorio por Bugs en estado "Not Resolved"</label>
+            <select id="aprobUserRepoPorBugsEstNotResolved" class="custom-select" [(ngModel)]="repositorio.aprobUserRepoPorBugsEstNotResolved" name="aprobUserRepoPorBugsEstNotResolved">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="ultVerFormatMatrizRiesgoCertSinPruebas">Última versión formato Matriz de riesgo para certificación sin pruebas</label>
+            <select id="ultVerFormatMatrizRiesgoCertSinPruebas" class="custom-select" [(ngModel)]="repositorio.ultVerFormatMatrizRiesgoCertSinPruebas" name="ultVerFormatMatrizRiesgoCertSinPruebas">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="AdjuntMatrizRiesgoCertSinPruebas">Adjuntó Matriz de riesgo para certificación sin pruebas</label>
+            <select id="AdjuntMatrizRiesgoCertSinPruebas" class="custom-select" [(ngModel)]="repositorio.AdjuntMatrizRiesgoCertSinPruebas" name="AdjuntMatrizRiesgoCertSinPruebas">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

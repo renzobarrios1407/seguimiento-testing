@@ -1,0 +1,71 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form>
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="idReleaseQC">ID Release en QC</label>
+            <input type="number" id="idReleaseQC" class="form-control" [(ngModel)]="releases.idReleaseQC" name="idReleaseQC" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estandarNomDeRelease">Estandar de nombramiento de Release</label>
+            <select id="estandarNomDeRelease" class="custom-select form-control" [(ngModel)]="releases.estandarNomDeRelease" name="estandarNomDeRelease">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="releaseIdEqAgendaAmbiente">Release ID = Agenda de ambiente</label>
+            <select id="releaseIdEqAgendaAmbiente" class="custom-select" [(ngModel)]="releases.releaseIdEqAgendaAmbiente" name="releaseIdEqAgendaAmbiente">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tieneFechaRealCierre">Tiene Fecha Real Cierre</label>
+            <select id="tieneFechaRealCierre" class="custom-select" [(ngModel)]="releases.tieneFechaRealCierre" name="tieneFechaRealCierre">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="tieneDefDeTermiEnSprORel">Tiene Definición de terminado en Sprint\Release</label>
+            <select id="tieneDefDeTermiEnSprORel" class="custom-select" [(ngModel)]="releases.tieneDefDeTermiEnSprORel" name="tieneDefDeTermiEnSprORel">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estadoDeSprint">Estado de Sprint</label>
+            <select id="estadoDeSprint" class="custom-select" [(ngModel)]="releases.estadoDeSprint" name="estadoDeSprint">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="reqsAsignsAlCiclo">Requerimientos asignados al ciclo</label>
+            <select id="reqsAsignsAlCiclo" class="custom-select" [(ngModel)]="releases.reqsAsignsAlCiclo" name="reqsAsignsAlCiclo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="carptsSetPruebasAsignsAlCiclo">Carpetas de set de pruebas asignadas al ciclo</label>
+            <select id="carptsSetPruebasAsignsAlCiclo" class="custom-select" [(ngModel)]="releases.carptsSetPruebasAsignsAlCiclo" name="carptsSetPruebasAsignsAlCiclo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
