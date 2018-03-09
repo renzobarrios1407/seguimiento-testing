@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartaDeCertificacion } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class CartaCertificacionFormComponent implements OnInit {
   titulo = 'Carta de Certificación';
-  cartaDeCertificacion: CartaDeCertificacion;
+  @Input() cartaDeCertificacion: CartaDeCertificacion;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.cartaDeCertificacion = new CartaDeCertificacion(0);

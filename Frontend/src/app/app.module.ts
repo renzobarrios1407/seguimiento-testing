@@ -21,6 +21,7 @@ import { DodDdtVstsFormComponent } from './components/dod-ddt-vsts-form/dod-ddt-
 import { UsdFormComponent } from './components/usd-form/usd-form.component';
 import { OpcionesService } from './services/opciones.service';
 import { SeguimientoComponent } from './components/seguimiento/seguimiento.component';
+import { SeguimientoService } from './services/seguimiento.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { SeguimientoComponent } from './components/seguimiento/seguimiento.compo
     FeatureRoutingModule
     // MaterialModule
   ],
-  providers: [OpcionesService],
+  providers: [OpcionesService, SeguimientoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

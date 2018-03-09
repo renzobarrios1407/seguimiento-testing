@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TestLab } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class TestLabFormComponent implements OnInit {
   titulo = 'Test Lab';
-  testLab: TestLab;
+  @Input() testLab: TestLab;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.testLab = new TestLab(0);

@@ -20,20 +20,20 @@ import {
 export class SeguimientoComponent implements OnInit {
 
   tester: Tester;
-  agendaAmbiente: AgendaDeAmbiente;
-  cartaCertificacion: CartaDeCertificacion;
+  agendaDeAmbiente: AgendaDeAmbiente;
+  cartaDeCertificacion: CartaDeCertificacion;
   defects: Defects;
-  dod: DoDDdTVSTS;
+  doDDdTVSTS: DoDDdTVSTS;
   releases: Releases;
   repositorio: Repositorio;
   requirements: Requirements;
   testLab: TestLab;
   usd: Usd;
   constructor() {
-    this.agendaAmbiente = new AgendaDeAmbiente(0);
-    this.cartaCertificacion = new CartaDeCertificacion(0);
+    this.agendaDeAmbiente = new AgendaDeAmbiente(0);
+    this.cartaDeCertificacion = new CartaDeCertificacion(0);
     this.defects = new Defects(0);
-    this.dod = new DoDDdTVSTS(0);
+    this.doDDdTVSTS = new DoDDdTVSTS(0);
     this.releases = new Releases(0);
     this.repositorio = new Repositorio(0);
     this.requirements = new Requirements(0);

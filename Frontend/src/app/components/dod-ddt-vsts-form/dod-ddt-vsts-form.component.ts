@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DoDDdTVSTS } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class DodDdtVstsFormComponent implements OnInit {
   titulo = 'DoD/DdT(VSTS)';
-  doDDdTVSTS: DoDDdTVSTS;
+  @Input() doDDdTVSTS: DoDDdTVSTS;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.doDDdTVSTS = new DoDDdTVSTS(0);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Requirements } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -10,7 +10,7 @@ import { OpcionesService } from '../../services/opciones.service';
 export class RequirementsFormComponent implements OnInit {
 
   titulo = 'Requirements';
-  requirements: Requirements;
+  @Input() requirements: Requirements;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.requirements = new Requirements(0);

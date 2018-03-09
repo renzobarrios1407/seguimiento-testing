@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Usd } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -10,7 +10,7 @@ import { OpcionesService } from '../../services/opciones.service';
 export class UsdFormComponent implements OnInit {
   titulo = 'Orden de Cambio';
   tituloIncidentes = 'Incidentes';
-  usd: Usd;
+  @Input() usd: Usd;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.usd = new Usd(0);

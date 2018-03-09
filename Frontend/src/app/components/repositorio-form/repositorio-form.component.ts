@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Repositorio } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class RepositorioFormComponent implements OnInit {
   titulo = 'Repositorio';
-  repositorio: Repositorio;
+  @Input() repositorio: Repositorio;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.repositorio = new Repositorio(0);

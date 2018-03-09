@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Defects } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class DefectsFormComponent implements OnInit {
   titulo = 'Defects';
-  defects: Defects;
+  @Input() defects: Defects;
 
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {

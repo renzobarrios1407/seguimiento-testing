@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AgendaDeAmbiente } from '../../models';
 import { OpcionesService } from '../../services/opciones.service';
 
@@ -10,7 +10,7 @@ import { OpcionesService } from '../../services/opciones.service';
 export class AgendaAmbienteFormComponent implements OnInit {
   titulo = 'Agenda de Ambiente';
   tituloSharePoint = 'Sharepoint ambiente de pruebas';
-  agendaDeAmbiente: AgendaDeAmbiente;
+  @Input() agendaDeAmbiente: AgendaDeAmbiente;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
     this.agendaDeAmbiente = new AgendaDeAmbiente(0);
