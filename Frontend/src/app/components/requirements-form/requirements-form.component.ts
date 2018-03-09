@@ -9,7 +9,7 @@ import { OpcionesService } from '../../services/opciones.service';
 })
 export class RequirementsFormComponent implements OnInit {
 
-  titulo = 'Releases';
+  titulo = 'Requirements';
   requirements: Requirements;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {

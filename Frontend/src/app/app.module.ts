@@ -20,6 +20,7 @@ import { RepositorioFormComponent } from './components/repositorio-form/reposito
 import { DodDdtVstsFormComponent } from './components/dod-ddt-vsts-form/dod-ddt-vsts-form.component';
 import { UsdFormComponent } from './components/usd-form/usd-form.component';
 import { OpcionesService } from './services/opciones.service';
+import { SeguimientoComponent } from './components/seguimiento/seguimiento.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { OpcionesService } from './services/opciones.service';
     CartaCertificacionFormComponent,
     RepositorioFormComponent,
     DodDdtVstsFormComponent,
-    UsdFormComponent
+    UsdFormComponent,
+    SeguimientoComponent
   ],
   imports: [
     BrowserModule,

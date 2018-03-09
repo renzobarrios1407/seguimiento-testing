@@ -3,6 +3,7 @@ export class Tester {
         public id: number,
         public nombre: string,
         public apellido: string,
+        public lugarTrabajo: string,
         public usuario: string,
         public password: string
     ) { }

@@ -1,0 +1,101 @@
+{{releases | json}}
+<div id="accordion">
+    <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
+        <div class="card-body">
+            <app-releases-form [releases]="releases"></app-releases-form>
+        </div>
+    </div>
+    <div id="collapseRequirements" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
+        <div class="card-body">
+            <app-requirements-form></app-requirements-form>
+        </div>
+    </div>
+    <div id="collapseTestLab" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
+        <div class="card-body">
+            <app-test-lab-form></app-test-lab-form>
+        </div>
+    </div>
+    <div id="collapseDefects" class="collapse" aria-labelledby="headingReleases" data-parent="#accordion">
+        <div class="card-body">
+            <app-defects-form></app-defects-form>
+        </div>
+    </div>
+    <div id="collapseAgendaAmbiente" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
+        <div class="card-body">
+            <app-agenda-ambiente-form></app-agenda-ambiente-form>
+        </div>
+    </div>
+    <div id="collapseCartaCertificacion" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
+        <div class="card-body">
+            <app-carta-certificacion-form></app-carta-certificacion-form>
+        </div>
+    </div>
+    <div id="collapseRepositorio" class="collapse" aria-labelledby="headingReleases" data-parent="#accordion">
+        <div class="card-body">
+            <app-repositorio-form></app-repositorio-form>
+        </div>
+    </div>
+    <div id="collapseDod" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
+        <div class="card-body">
+            <app-dod-ddt-vsts-form></app-dod-ddt-vsts-form>
+        </div>
+    </div>
+    <div id="collapseUSD" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
+        <div class="card-body">
+            <app-usd-form></app-usd-form>
+        </div>
+    </div>
+
+    <div class="row text-center mb-4">
+        <div class="col-md-2 mx-auto">
+            <button (click)="onClick()" type="button" class="btn btn-outline-primary">Guardar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div id="accordion">
+    <div class="mb-2">
+        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingReleases">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseReleases" aria-expanded="true" aria-controls="collapseReleases">
+                    Releases
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
+            <div class="card-body">
+                <app-releases-form></app-releases-form>
+            </div>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingRequirements">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseRequirements" aria-expanded="false" aria-controls="collapseRequirements">
+                    Requirements
+                </button>
+            </h5>
+        </div>
+        <div id="collapseRequirements" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
+            <div class="card-body">
+                <app-requirements-form></app-requirements-form>
+            </div>
+        </div>
+    </div>
+    <div class="mb-2">
+        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingTestLab">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTestLab" aria-expanded="false" aria-controls="collapseTestLab">
+                    Test Lab
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTestLab" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
+            <div class="card-body">
+                <app-test-lab-form></app-test-lab-form>
+            </div>
+        </div>
+    </div>
+</div> -->
