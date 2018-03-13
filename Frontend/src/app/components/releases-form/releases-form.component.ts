@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Releases } from '../../models';
-import { OpcionesService } from '../../services/opciones.service';
+import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({
   selector: 'app-releases-form',

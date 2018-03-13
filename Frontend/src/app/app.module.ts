@@ -26,9 +26,10 @@ import { NuevoSeguimientoComponent } from './components/nuevo-seguimiento/nuevo-
 import { FeatureRoutingModule } from './app.routes';
 
 // Servicios
-import { OpcionesService } from './services/opciones.service';
-import { SeguimientoService } from './services/seguimiento.service';
+import { OpcionesService } from './services/opciones/opciones.service';
+import { SeguimientoService } from './services/seguimiento/seguimiento.service';
 import { SeguimientosComponent } from './components/seguimientos/seguimientos.component';
+import { TesterService } from './services/tester/tester.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { SeguimientosComponent } from './components/seguimientos/seguimientos.co
     HttpClientModule
     // MaterialModule
   ],
-  providers: [OpcionesService, SeguimientoService],
+  providers: [OpcionesService, SeguimientoService, TesterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Seguimiento } from '../models';
+import { Seguimiento } from '../../models';
 
 @Injectable()
 export class SeguimientoService {
-  private url = 'http://localhost:3000/seguimiento';
+  private url = 'http://192.168.3.106:3000/seguimiento';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -19,8 +19,11 @@ export class SeguimientoService {
     };
     return this.http.post<Seguimiento>(this.url, JSON.stringify(mensaje), this.httpOptions);
   }
-  public getSeguimiento(idSeguimiento: string | number) {
-    return this.http.get(this.url + '/' + idSeguimiento , this.httpOptions);
+  public getSeguimiento(idSeguimiento: string | number, testerId: string | number) {
+    return this.http.get(this.url + '/' + idSeguimiento + '/' + testerId , this.httpOptions);
+  }
+  public getSeguimientos(idTester: string | number) {
+    return this.http.get<Seguimiento[]>(this.url + '/' + idTester , this.httpOptions);
   }
 
   public saveSeguimiento(idSeguimiento: string | number, datos: any) {

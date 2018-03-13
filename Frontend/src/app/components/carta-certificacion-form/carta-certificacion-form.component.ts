@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartaDeCertificacion } from '../../models';
-import { OpcionesService } from '../../services/opciones.service';
+import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({
   selector: 'app-carta-certificacion-form',

@@ -1,5 +1,17 @@
 <app-title [titulo]="titulo"></app-title>
 <div class="container">
-  <div class="col-md-8 mx-auto padding">
+  <div class="col-md-10 mx-auto padding">
+    <div class="row">
+      <div class="col-md-4 my-1 mx-auto" *ngFor="let seguimiento of seguimientos">
+        <div class="card">
+          <h5 class="card-header">PMO: {{seguimiento.pmo}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">Sprint/Release: {{seguimiento.sprORel}}</h5>
+            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+            <a [routerLink]="[ '/seguimiento', seguimiento.id ]" class="btn btn-primary">Editar</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

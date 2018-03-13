@@ -14,7 +14,8 @@ import {
 } from '../../models';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { SeguimientoService } from '../../services/seguimiento.service';
+import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
+import { TesterService } from '../../services/tester/tester.service';
 
 @Component({
   selector: 'app-seguimiento',
@@ -33,13 +34,17 @@ export class SeguimientoComponent implements OnInit {
   requirements: Requirements;
   testLab: TestLab;
   usd: Usd;
-  constructor(private route: ActivatedRoute, private segService: SeguimientoService, private router: Router) {
-
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private segService: SeguimientoService,
+    private testerService: TesterService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.tester = this.testerService.getIdentidad();
     this.route.params.subscribe(params => {
-      this.segService.getSeguimiento(params.id).subscribe(
+      this.segService.getSeguimiento(params.id, this.tester.id).subscribe(
         respuesta => {
         console.log(respuesta);
         this.seguimiento = respuesta['seguimiento'];
@@ -60,10 +65,10 @@ export class SeguimientoComponent implements OnInit {
         this.router.navigate(['/nuevo-seguimiento']);
       });
     });
-    this.tester = JSON.parse(localStorage.getItem('identidad'));
   }
 
-  guardar() {
+  atras() {
+    this.router.navigate(['/seguimientos']);
   }
   enviar() {
     const req = {
@@ -84,6 +89,7 @@ export class SeguimientoComponent implements OnInit {
     this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(
       respuesta => {
       console.log(respuesta);
+      this.router.navigate(['/seguimientos']);
       },
       error => {
         console.log('error');

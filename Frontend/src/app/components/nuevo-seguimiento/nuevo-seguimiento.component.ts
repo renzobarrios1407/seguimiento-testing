@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Seguimiento, Tester } from '../../models';
-import { SeguimientoService } from '../../services/seguimiento.service';
+import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
 import { Router } from '@angular/router';
+import { TesterService } from '../../services/tester/tester.service';
 
 @Component({
   selector: 'app-nuevo-seguimiento',
@@ -14,10 +15,14 @@ export class NuevoSeguimientoComponent implements OnInit {
   titulo = 'Nuevo Seguimiento';
   seguimiento: Seguimiento;
   // @Output() seguimientoChange: EventEmitter<seguimiento>;
-  constructor( private segService: SeguimientoService, private router: Router) {
+  constructor(
+    private segService: SeguimientoService,
+    private router: Router,
+    private testerService: TesterService
+  ) {
     this.seguimiento = new Seguimiento();
     this.tester = new Tester('1111111', 'jorge', 'chagui', 'romero', 'medellin', 'jorge.chagui', '1234', 1);
-   localStorage.setItem('identidad', JSON.stringify(this.tester));
+    testerService.setIdentidad(this.tester);
   }
 
   ngOnInit() {

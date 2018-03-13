@@ -23,8 +23,8 @@ var crearSeguimiento = function (req, res, next) {
         })
     };
 var getSeguimiento = function (req, res, next) {
-    seguimiento.findById(req.params.idSeguimiento, { include: [{ all: true }]}).then(
-        resultado => {
+    seguimiento.findOne( { where: { testerId: req.params.testerId, id: req.params.idSeguimiento }, include: [{ all: true }]}).then(
+        resultado => {            
             var respuesta = {
                 seguimiento: {
                     id: resultado.id,
@@ -46,6 +46,15 @@ var getSeguimiento = function (req, res, next) {
         }
     ).catch (error => {        
         res.status(404).send({ mensaje: "No se encontró el seguimiento"})
+    })
+};
+var getSeguimientos = function (req, res, next) {
+    seguimiento.findAll( { where: { testerId: req.params.testerId }}).then(
+        resultado => {
+            res.status(200).send(resultado)
+        }
+    ).catch (error => {        
+        res.status(404).send({ mensaje: "No se encontraron seguimientos"})
     })
 };
 
@@ -165,5 +174,6 @@ var guardarSeguimiento = function (req, res, next) {
 module.exports = {
     guardarSeguimiento: guardarSeguimiento,
     crearSeguimiento: crearSeguimiento,
-    getSeguimiento: getSeguimiento
+    getSeguimiento: getSeguimiento,
+    getSeguimientos: getSeguimientos
 };
