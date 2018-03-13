@@ -59,19 +59,19 @@ var guardarSeguimiento = function (req, res, next) {
                     seguimiento.setCartaDeCertificacion(cartaDeCertificacion);
                     defects.create(req.body.defects)
                     .then( defects => {
-                        seguimiento.setDefects(defects);
+                        seguimiento.setDefect(defects); // Se quita la 's' que tiene la tabla al metodo set
                         doDDdTVSTS.create(req.body.doDDdTVSTS)
                         .then( doDDdTVSTS => {
-                            seguimiento.setDoDDdTVSTS(doDDdTVSTS);
+                            seguimiento.setDoDDdTVST(doDDdTVSTS); // Se quita la 's' que tiene la tabla al metodo set
                             releases.create(req.body.releases)
                             .then( releases => {
-                                seguimiento.setReleases(releases);
+                                seguimiento.setRelease(releases); // Se quita la 's' que tiene la tabla al metodo set
                                 repositorio.create(req.body.repositorio)
                                 .then( repositorio => {
                                     seguimiento.setRepositorio(repositorio);
                                     requirements.create(req.body.requirements)
                                     .then( requirements => {
-                                        seguimiento.setRequirements(requirements);
+                                        seguimiento.setRequirement(requirements); // Se quita la 's' que tiene la tabla al metodo set
                                         testLab.create(req.body.testLab)
                                         .then( testLab => {
                                             seguimiento.setTestLab(testLab);

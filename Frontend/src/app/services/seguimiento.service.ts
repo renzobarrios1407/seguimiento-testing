@@ -27,6 +27,6 @@ export class SeguimientoService {
     return this.http.put(this.url + '/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
   }
   public sendDataSeguimiento(idSeguimiento: string | number, datos: any) {
-    return this.http.put(this.url + '/guardar/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
+    return this.http.post(this.url + '/guardar/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
   }
 }

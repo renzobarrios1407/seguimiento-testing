@@ -10,7 +10,6 @@ import { SeguimientosComponent } from './components/seguimientos/seguimientos.co
 
 
 const routes: Routes = [
-    { path: 'angenda-ambiente', component: AgendaAmbienteFormComponent },
     { path: 'seguimiento/:id', component: SeguimientoComponent },
     { path: 'seguimientos', component: SeguimientosComponent },
     { path: 'login', component: LoginComponent },
