@@ -12,7 +12,7 @@ import {
   Usd,
   Seguimiento
 } from '../../models';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { SeguimientoService } from '../../services/seguimiento.service';
 
@@ -33,23 +33,31 @@ export class SeguimientoComponent implements OnInit {
   requirements: Requirements;
   testLab: TestLab;
   usd: Usd;
-  constructor(private route: ActivatedRoute, private segService: SeguimientoService) {
-    this.agendaDeAmbiente = new AgendaDeAmbiente();
-    this.cartaDeCertificacion = new CartaDeCertificacion();
-    this.defects = new Defects();
-    this.doDDdTVSTS = new DoDDdTVSTS();
-    this.releases = new Releases();
-    this.repositorio = new Repositorio();
-    this.requirements = new Requirements();
-    this.testLab = new TestLab();
-    this.usd = new Usd();
+  constructor(private route: ActivatedRoute, private segService: SeguimientoService, private router: Router) {
+
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.segService.getSeguimiento(params.id).subscribe(seguimiento => {
-        this.seguimiento = seguimiento;
+      this.segService.getSeguimiento(params.id).subscribe(
+        respuesta => {
+        console.log(respuesta);
+        this.seguimiento = respuesta['seguimiento'];
         // Crear los demás objetos si existen
+
+        this.agendaDeAmbiente = (respuesta['agendaDeAmbiente']) ? respuesta['agendaDeAmbiente'] : new AgendaDeAmbiente();
+        this.cartaDeCertificacion = (respuesta['cartaDeCertificacion']) ? respuesta['cartaDeCertificacion'] : new CartaDeCertificacion();
+        this.defects = (respuesta['defects']) ? respuesta['defects'] : new Defects();
+        this.doDDdTVSTS = (respuesta['doDDdTVSTS']) ? respuesta['doDDdTVSTS'] : new DoDDdTVSTS();
+        this.releases = (respuesta['releases']) ? respuesta['releases'] : new Releases();
+        this.repositorio = (respuesta['repositorio']) ? respuesta['repositorio'] : new Repositorio();
+        this.requirements = (respuesta['requirements']) ? respuesta['requirements'] : new Requirements();
+        this.testLab = (respuesta['testLab']) ? respuesta['testLab'] : new TestLab();
+        this.usd = (respuesta['usd']) ? respuesta['usd'] : new Usd();
+      },
+      error => {
+        console.log('no existe el seguimiento');
+        this.router.navigate(['/nuevo-seguimiento']);
       });
     });
     this.tester = JSON.parse(localStorage.getItem('identidad'));
@@ -73,12 +81,13 @@ export class SeguimientoComponent implements OnInit {
       usd: this.usd
     };
 
-    this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(respuesta => {
-      console.log('Creado con exito');
-    },
-    error => {
-      console.log('error');
-    }
-  );
+    this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(
+      respuesta => {
+      console.log(respuesta);
+      },
+      error => {
+        console.log('error');
+      }
+    );
   }
 }
