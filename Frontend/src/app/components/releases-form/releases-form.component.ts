@@ -13,12 +13,13 @@ export class ReleasesFormComponent implements OnInit {
   // @Output() releasesChange: EventEmitter<Releases>;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.releases = new Releases(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
-    console.log(this.releases);
+    if (!this.releases) {
+      this.releases = new Releases();
+    }
   }
 
   // onClick() {

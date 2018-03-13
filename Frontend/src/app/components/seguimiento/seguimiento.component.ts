@@ -9,8 +9,12 @@ import {
   Repositorio,
   Requirements,
   TestLab,
-  Usd
+  Usd,
+  Seguimiento
 } from '../../models';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { SeguimientoService } from '../../services/seguimiento.service';
 
 @Component({
   selector: 'app-seguimiento',
@@ -18,8 +22,8 @@ import {
   styleUrls: ['./seguimiento.component.css']
 })
 export class SeguimientoComponent implements OnInit {
-
   tester: Tester;
+  seguimiento: Seguimiento;
   agendaDeAmbiente: AgendaDeAmbiente;
   cartaDeCertificacion: CartaDeCertificacion;
   defects: Defects;
@@ -29,21 +33,52 @@ export class SeguimientoComponent implements OnInit {
   requirements: Requirements;
   testLab: TestLab;
   usd: Usd;
-  constructor() {
-    this.agendaDeAmbiente = new AgendaDeAmbiente(0);
-    this.cartaDeCertificacion = new CartaDeCertificacion(0);
-    this.defects = new Defects(0);
-    this.doDDdTVSTS = new DoDDdTVSTS(0);
-    this.releases = new Releases(0);
-    this.repositorio = new Repositorio(0);
-    this.requirements = new Requirements(0);
-    this.testLab = new TestLab(0);
-    this.usd = new Usd(0);
-
-    this.releases.estadoDeSprint = 'SI';
+  constructor(private route: ActivatedRoute, private segService: SeguimientoService) {
+    this.agendaDeAmbiente = new AgendaDeAmbiente();
+    this.cartaDeCertificacion = new CartaDeCertificacion();
+    this.defects = new Defects();
+    this.doDDdTVSTS = new DoDDdTVSTS();
+    this.releases = new Releases();
+    this.repositorio = new Repositorio();
+    this.requirements = new Requirements();
+    this.testLab = new TestLab();
+    this.usd = new Usd();
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.segService.getSeguimiento(params.id).subscribe(seguimiento => {
+        this.seguimiento = seguimiento;
+        // Crear los demás objetos si existen
+      });
+    });
+    this.tester = JSON.parse(localStorage.getItem('identidad'));
   }
 
+  guardar() {
+  }
+  enviar() {
+    const req = {
+      tester: {
+        id: this.tester.id
+      },
+      agendaDeAmbiente: this.agendaDeAmbiente,
+      cartaDeCertificacion: this.cartaDeCertificacion,
+      defects: this.defects,
+      doDDdTVSTS: this.doDDdTVSTS,
+      releases: this.releases,
+      repositorio: this.repositorio,
+      requirements: this.requirements,
+      testLab: this.testLab,
+      usd: this.usd
+    };
+
+    this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(respuesta => {
+      console.log('Creado con exito');
+    },
+    error => {
+      console.log('error');
+    }
+  );
+  }
 }

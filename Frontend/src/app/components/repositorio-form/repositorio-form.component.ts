@@ -12,11 +12,13 @@ export class RepositorioFormComponent implements OnInit {
   @Input() repositorio: Repositorio;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.repositorio = new Repositorio(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.repositorio) {
+      this.repositorio = new Repositorio();
+    }
   }
 
 }

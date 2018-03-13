@@ -1,4 +1,4 @@
-{{releases | json}}
+
 <div id="accordion">
     <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
         <div class="card-body">
@@ -47,8 +47,9 @@
     </div>
 
     <div class="row text-center mb-4">
-        <div class="col-md-2 mx-auto">
-            <button (click)="onClick()" type="button" class="btn btn-outline-primary">Guardar</button>
+        <div class="col-md-6 mx-auto">
+            <button (click)="guardar()" type="button" class="btn btn-outline-primary">Guardar</button>
+            <button (click)="enviar()" type="button" class="btn btn-outline-success">Enviar</button>
         </div>
     </div>
 </div>

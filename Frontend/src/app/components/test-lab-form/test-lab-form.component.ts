@@ -12,10 +12,12 @@ export class TestLabFormComponent implements OnInit {
   @Input() testLab: TestLab;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.testLab = new TestLab(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.testLab) {
+      this.testLab = new TestLab();
+    }
   }
 }

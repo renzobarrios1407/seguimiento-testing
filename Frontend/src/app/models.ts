@@ -1,16 +1,31 @@
 export class Tester {
     constructor(
-        public id: number,
+        public cedula: string,
         public nombre: string,
-        public apellido: string,
+        public primerApellido: string,
+        public segundoApellido: string,
         public lugarTrabajo: string,
         public usuario: string,
-        public password: string
+        public password: string,
+        public id?: number
     ) { }
+}
+
+export class Seguimiento {
+    constructor(
+        public id?: number,
+        // PMO Incidente Caso Problema Soporte Estructural Versionamiento Vulnerabilidad
+        public pmo?: string,
+        // Sprint\Release
+        public sprORel?: number | string,
+        // Saved
+        public saved?: string
+    ) { }
+
 }
 export class Releases {
     constructor(
-        public id: number,
+        public id?: number,
         // Estandar de nombramiento de Release
         public estandarNomDeRelease?: string,
         // ID Release en QC
@@ -32,7 +47,7 @@ export class Releases {
 
 export class Requirements {
     constructor(
-        public id: number,
+        public id?: number,
         // Tiene Alcance/Estrategia acorde al Sprint/Release finalizado
         public tieneAlcOEstratAcrdAlSprORelFin?: string,
         // Tiene riesgos de producto por Sprint\Release
@@ -46,7 +61,7 @@ export class Requirements {
 
 export class TestLab {
     constructor(
-        public id: number,
+        public id?: number,
         // Los pasos de los casos de prueba están ejecutados
         public pasosDeCasosPruebaEjecutados?: string,
         // Los casos de prueba tienen estado final
@@ -56,7 +71,7 @@ export class TestLab {
 
 export class Defects {
     constructor(
-        public id: number,
+        public id?: number,
         // Defecto detectado asignado al ciclo\sprint
         public defectoDetectAsignAlCicOSpr?: string,
         // Defecto detectado asignado al release
@@ -71,7 +86,7 @@ export class Defects {
 }
 export class AgendaDeAmbiente {
     constructor(
-        public id: number,
+        public id?: number,
         // ID Agenda de ambiente
         public iDAgendaDeAmbiente?: number,
         // Última versión formato
@@ -86,7 +101,7 @@ export class AgendaDeAmbiente {
 }
 export class CartaDeCertificacion {
     constructor(
-        public id: number,
+        public id?: number,
         // Último formato de carta
         public ultimoFormatoDeCarta?: string,
         // Estándar de nombramiento
@@ -103,7 +118,7 @@ export class CartaDeCertificacion {
 }
 export class Repositorio {
     constructor(
-        public id: number,
+        public id?: number,
         // Ruta del repositorio
         public rutaRepositorio?: string,
         // Estándar de nombramiento
@@ -124,7 +139,7 @@ export class Repositorio {
 }
 export class DoDDdTVSTS {
     constructor(
-        public id: number,
+        public id?: number,
         // DoD
         public doD?: number,
         // Estandar de nombramiento de la carta en el DoD\Ddt
@@ -145,7 +160,7 @@ export class DoDDdTVSTS {
 }
 export class Usd {
     constructor(
-        public id: number,
+        public id?: number,
         // # de Orden de Cambio
         public numOrdenCambio?: number,
         // Campo Código Definición de Terminado

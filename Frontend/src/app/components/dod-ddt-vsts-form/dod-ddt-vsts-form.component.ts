@@ -12,11 +12,13 @@ export class DodDdtVstsFormComponent implements OnInit {
   @Input() doDDdTVSTS: DoDDdTVSTS;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.doDDdTVSTS = new DoDDdTVSTS(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.doDDdTVSTS) {
+      this.doDDdTVSTS = new DoDDdTVSTS();
+    }
   }
 
 }

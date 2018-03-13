@@ -1,8 +1,32 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Seguimiento } from '../models';
 
 @Injectable()
 export class SeguimientoService {
+  private url = 'http://localhost:3000/seguimiento';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  public crearSeguimiento(seguimiento: Seguimiento, idTester: string | number) {
+    const mensaje = {
+      tester: {
+        id: idTester
+      },
+      seguimiento: seguimiento
+    };
+    return this.http.post<Seguimiento>(this.url, JSON.stringify(mensaje), this.httpOptions);
+  }
+  public getSeguimiento(idSeguimiento: string | number) {
+    return this.http.get(this.url + '/' + idSeguimiento , this.httpOptions);
+  }
 
+  public saveSeguimiento(idSeguimiento: string | number, datos: any) {
+    return this.http.put(this.url + '/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
+  }
+  public sendDataSeguimiento(idSeguimiento: string | number, datos: any) {
+    return this.http.put(this.url + '/guardar/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
+  }
 }

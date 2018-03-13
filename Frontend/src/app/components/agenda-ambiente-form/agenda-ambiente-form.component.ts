@@ -18,6 +18,9 @@ export class AgendaAmbienteFormComponent implements OnInit {
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.agendaDeAmbiente) {
+      this.agendaDeAmbiente = new AgendaDeAmbiente();
+    }
   }
 
 }

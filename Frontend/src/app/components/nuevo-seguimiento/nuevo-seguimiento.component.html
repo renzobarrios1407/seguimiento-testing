@@ -1,0 +1,26 @@
+<app-title [titulo]="titulo"></app-title>
+<div class="container">
+  <div class="col-md-8 mx-auto padding">
+    <form (ngSubmit) = "onClick()">
+      <div class="row align-items-end">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="pmo">PMO Incidente Caso Problema Soporte Estructural Versionamiento Vulnerabilidad</label>
+            <input type="text" id="pmo" class="form-control" [(ngModel)]="seguimiento.pmo" name="pmo" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="sprORel">Sprint\Release</label>
+            <input type="number" id="sprORel" class="form-control" [(ngModel)]="seguimiento.sprORel" name="sprORel" />
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mb-4">
+        <div class="col-md-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Guardar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

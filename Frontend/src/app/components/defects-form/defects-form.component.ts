@@ -13,11 +13,13 @@ export class DefectsFormComponent implements OnInit {
 
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.defects = new Defects(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.defects) {
+      this.defects = new Defects();
+    }
   }
 
 }

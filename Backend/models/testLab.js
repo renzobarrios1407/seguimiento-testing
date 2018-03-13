@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     TestLab.associate = function (models) {
-
+        //Test Lab pertenece a un Seguimiento
+        models.testLab.belongsTo(models.seguimiento);
     };
     return TestLab;
 }

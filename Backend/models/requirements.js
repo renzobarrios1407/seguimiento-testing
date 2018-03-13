@@ -31,7 +31,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Requirements.associate = function (models) {
-
+        //Requirements pertenece a un Seguimiento
+        models.requirements.belongsTo(models.seguimiento);
     };
     return Requirements;
 }

@@ -13,11 +13,13 @@ export class UsdFormComponent implements OnInit {
   @Input() usd: Usd;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.usd = new Usd(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.usd) {
+      this.usd = new Usd();
+    }
   }
 
 }

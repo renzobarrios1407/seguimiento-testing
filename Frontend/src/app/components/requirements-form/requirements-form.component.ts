@@ -13,11 +13,13 @@ export class RequirementsFormComponent implements OnInit {
   @Input() requirements: Requirements;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.requirements = new Requirements(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.requirements) {
+      this.requirements = new Requirements();
+    }
   }
 
 }

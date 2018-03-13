@@ -12,11 +12,13 @@ export class CartaCertificacionFormComponent implements OnInit {
   @Input() cartaDeCertificacion: CartaDeCertificacion;
   opciones: string[];
   constructor(private opcionesService: OpcionesService) {
-    this.cartaDeCertificacion = new CartaDeCertificacion(0);
   }
 
   ngOnInit() {
     this.opciones = this.opcionesService.getOpciones();
+    if (!this.cartaDeCertificacion) {
+      this.cartaDeCertificacion = new CartaDeCertificacion();
+    }
   }
 
 }

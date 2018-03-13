@@ -5,14 +5,17 @@ import { ReleasesFormComponent } from './components/releases-form/releases-form.
 import { LoginComponent } from './components/login/login.component';
 import { AgendaAmbienteFormComponent } from './components/agenda-ambiente-form/agenda-ambiente-form.component';
 import { SeguimientoComponent } from './components/seguimiento/seguimiento.component';
+import { NuevoSeguimientoComponent } from './components/nuevo-seguimiento/nuevo-seguimiento.component';
+import { SeguimientosComponent } from './components/seguimientos/seguimientos.component';
 
 
 const routes: Routes = [
-    { path: 'releases', component: ReleasesFormComponent },
     { path: 'angenda-ambiente', component: AgendaAmbienteFormComponent },
-    { path: 'seguimiento', component: SeguimientoComponent },
+    { path: 'seguimiento/:id', component: SeguimientoComponent },
+    { path: 'seguimientos', component: SeguimientosComponent },
     { path: 'login', component: LoginComponent },
-    { path: '**', redirectTo: 'seguimiento', pathMatch: 'full' }
+    { path: 'nuevo-seguimiento', component: NuevoSeguimientoComponent },
+    { path: '**', redirectTo: 'seguimientos', pathMatch: 'full' }
 ];
 
 @NgModule({

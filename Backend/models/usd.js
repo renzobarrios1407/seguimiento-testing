@@ -2,7 +2,7 @@
 var opciones = require("../config/opciones");
 module.exports = (sequelize, DataTypes) => {
     // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
-    const DoDDdTVSTS = sequelize.define('doDDdTVSTS', {
+    const Usd = sequelize.define('usd', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         // # de Orden de Cambio
         numOrdenCambio: {
@@ -30,8 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    DoDDdTVSTS.associate = function (models) {
-
+    Usd.associate = function (models) {
+        //DoD/DdT(VSTS) pertenece a un Seguimiento
+        models.usd.belongsTo(models.seguimiento);
     };
-    return DoDDdTVSTS;
+    return Usd;
 }

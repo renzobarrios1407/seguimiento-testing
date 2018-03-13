@@ -37,7 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Defects.associate = function (models) {
-
+        //Defects pertenece a un Seguimiento
+        models.defects.belongsTo(models.seguimiento);
     };
     return Defects;
 }

@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
     // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
-    const Tester = sequelize.define('usuario', {
+    const Tester = sequelize.define('tester', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         cedula: {
             type: DataTypes.STRING,
@@ -95,7 +95,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Tester.associate = function (models) {
-    
+        //Tester tiene muchos Seguimientos
+        models.tester.hasMany(models.seguimiento);
     };
     return Tester;
 }

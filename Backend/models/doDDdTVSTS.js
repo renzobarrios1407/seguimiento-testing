@@ -61,7 +61,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     DoDDdTVSTS.associate = function (models) {
-
+        //DoDDdTVSTS pertenece a un Seguimiento
+        models.doDDdTVSTS.belongsTo(models.seguimiento);
     };
     return DoDDdTVSTS;
 }

@@ -54,7 +54,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Repositorio.associate = function (models) {
-
+        //Repositorio pertenece a un Seguimiento
+        models.repositorio.belongsTo(models.seguimiento);
     };
     return Repositorio;
 }
