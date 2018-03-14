@@ -4,7 +4,7 @@ import { Seguimiento } from '../../models';
 
 @Injectable()
 export class SeguimientoService {
-  private url = 'http://192.168.3.106:3000/seguimiento';
+  private url = 'http://localhost:3000/seguimiento';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

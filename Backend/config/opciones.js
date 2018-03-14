@@ -1,1 +1,4 @@
-module.exports = ['N/A', 'SI', 'NO'];
+module.exports = {
+    opciones: ['N/A', 'SI', 'NO'],
+    roles: ['tester', 'auditor']
+};

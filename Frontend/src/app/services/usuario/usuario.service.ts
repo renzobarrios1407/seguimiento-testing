@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Tester } from '../../models';
+import { Usuario } from '../../models';
 
 @Injectable()
-export class TesterService {
+export class UsuarioService {
 
   private userUrl = 'http://localhost:3000/usuarios';
-  public identidad: Tester;
+  public identidad: Usuario;
   constructor(private http: HttpClient) {
 
   }
@@ -20,8 +20,8 @@ export class TesterService {
     }
     return this.identidad;
   }
-  public setIdentidad( tester: Tester) {
-    localStorage.setItem('identidad', JSON.stringify(tester));
+  public setIdentidad( usuario: Usuario) {
+    localStorage.setItem('identidad', JSON.stringify(usuario));
   }
 
 }

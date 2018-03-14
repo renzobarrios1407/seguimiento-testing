@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  Tester,
+  Usuario,
   AgendaDeAmbiente,
   CartaDeCertificacion,
   Defects,
@@ -15,7 +15,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
-import { TesterService } from '../../services/tester/tester.service';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-seguimiento',
@@ -23,7 +23,7 @@ import { TesterService } from '../../services/tester/tester.service';
   styleUrls: ['./seguimiento.component.css']
 })
 export class SeguimientoComponent implements OnInit {
-  tester: Tester;
+  tester: Usuario;
   seguimiento: Seguimiento;
   agendaDeAmbiente: AgendaDeAmbiente;
   cartaDeCertificacion: CartaDeCertificacion;
@@ -37,12 +37,12 @@ export class SeguimientoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private segService: SeguimientoService,
-    private testerService: TesterService,
+    private usuarioService: UsuarioService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.tester = this.testerService.getIdentidad();
+    this.tester = this.usuarioService.getIdentidad();
     this.route.params.subscribe(params => {
       this.segService.getSeguimiento(params.id, this.tester.id).subscribe(
         respuesta => {

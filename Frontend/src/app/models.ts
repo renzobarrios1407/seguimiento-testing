@@ -1,4 +1,4 @@
-export class Tester {
+export class Usuario {
     constructor(
         public cedula: string,
         public nombre: string,
@@ -7,8 +7,16 @@ export class Tester {
         public lugarTrabajo: string,
         public usuario: string,
         public password: string,
+        public rolId: number,
         public id?: number
     ) { }
+}
+
+export class Rol {
+    constructor(
+        public id: number,
+        public nombre: string
+    ) {}
 }
 
 export class Seguimiento {

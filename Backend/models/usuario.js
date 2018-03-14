@@ -1,8 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
-    const Tester = sequelize.define('tester', {
+    const Usuario = sequelize.define('usuario', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         cedula: {
             type: DataTypes.STRING,
@@ -78,8 +77,13 @@ module.exports = (sequelize, DataTypes) => {
         usuario: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: {
+                args: true,
+                msg: "El usuario ya está registrado"
+            },
             validate: {
-                isAlphanumeric: {
+                is: {
+                    args: ['^[a-zA-Z0-9\-\.]+$', 'i'],
                     msg: "Ingrese carácteres válidos en usuario"
                 },
                 len: {
@@ -94,9 +98,10 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    Tester.associate = function (models) {
-        //Tester tiene muchos Seguimientos
-        models.tester.hasMany(models.seguimiento);
+    Usuario.associate = function (models) {
+        //Usuario tiene muchos Seguimientos
+        models.usuario.hasMany(models.seguimiento, {foreignKey: 'testerId'});
+        models.usuario.belongsTo(models.rol);
     };
-    return Tester;
+    return Usuario;
 }

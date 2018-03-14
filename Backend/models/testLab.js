@@ -1,5 +1,5 @@
 
-var opciones = require("../config/opciones");
+var opciones = require("../config/opciones").opciones;
 module.exports = (sequelize, DataTypes) => {
     // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
     const TestLab = sequelize.define('testLab', {

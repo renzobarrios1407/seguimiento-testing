@@ -53,8 +53,8 @@ module.exports = (sequelize, DataTypes) => {
         models.seguimiento.hasOne(models.doDDdTVSTS);
         //Seguimiento tiene un usd
         models.seguimiento.hasOne(models.usd);
-        //Seguimiento pertenece a un tester
-        models.seguimiento.belongsTo(models.tester);
+        //Seguimiento pertenece a un usuario
+        models.seguimiento.belongsTo(models.usuario, {foreignKey: 'testerId'});
     };
     return Seguimiento;
 }

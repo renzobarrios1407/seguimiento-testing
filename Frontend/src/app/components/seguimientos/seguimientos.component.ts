@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
-import { Seguimiento, Tester } from '../../models';
-import { TesterService } from '../../services/tester/tester.service';
+import { Seguimiento, Usuario } from '../../models';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-seguimientos',
@@ -10,15 +10,15 @@ import { TesterService } from '../../services/tester/tester.service';
 })
 export class SeguimientosComponent implements OnInit {
   titulo = 'Seguimientos Pendientes';
-  tester: Tester;
+  tester: Usuario;
   seguimientos: any[];
   constructor(
     private segService: SeguimientoService,
-    private testerService: TesterService
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
-    this.tester = this.testerService.getIdentidad();
+    this.tester = this.usuarioService.getIdentidad();
     this.segService.getSeguimientos(this.tester.id).subscribe(
       resultado => {
         console.log(resultado);

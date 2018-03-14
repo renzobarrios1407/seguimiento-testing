@@ -1,4 +1,4 @@
-var tester = require('../models').tester;
+var tester = require('../models').usuario;
 var seguimiento = require('../models').seguimiento;
 var releases = require('../models').releases;
 var agendaDeAmbiente = require('../models').agendaDeAmbiente;
@@ -106,15 +106,6 @@ var guardarSeguimiento = function (req, res, next) {
             upsert(requirements, req.body.requirements, { id: req.body.requirements.id }),
             upsert(testLab, req.body.testLab, { id: req.body.testLab.id }),
             upsert(usd, req.body.usd, { id: req.body.usd.id })
-            // agendaDeAmbiente.create(req.body.agendaDeAmbiente),
-            // cartaDeCertificacion.create(req.body.cartaDeCertificacion),
-            // defects.create(req.body.defects),
-            // doDDdTVSTS.create(req.body.doDDdTVSTS),
-            // releases.create(req.body.releases),
-            // repositorio.create(req.body.repositorio),
-            // requirements.create(req.body.requirements),
-            // testLab.create(req.body.testLab),
-            // usd.create(req.body.usd)
         ]).then(values => {
             seguimiento.setAgendaDeAmbiente(values[0]);
             seguimiento.setCartaDeCertificacion(values[1]);
@@ -129,51 +120,12 @@ var guardarSeguimiento = function (req, res, next) {
         }).catch(error => {
             res.status(200).send({ mensaje: "Fallo al guardar, llene todos los campos", seguimiento: seguimiento})
         });
-
-
-        // agendaDeAmbiente.create(req.body.agendaDeAmbiente)
-        // .then( agendaDeAmbiente => {
-        //     seguimiento.setAgendaDeAmbiente(agendaDeAmbiente);
-        //     cartaDeCertificacion.create(req.body.cartaDeCertificacion)
-        //     .then( cartaDeCertificacion => {
-        //         seguimiento.setCartaDeCertificacion(cartaDeCertificacion);
-        //         defects.create(req.body.defects)
-        //         .then( defects => {
-        //             seguimiento.setDefect(defects); // Se quita la 's' que tiene la tabla al metodo set
-        //             doDDdTVSTS.create(req.body.doDDdTVSTS)
-        //             .then( doDDdTVSTS => {
-        //                 seguimiento.setDoDDdTVST(doDDdTVSTS); // Se quita la 's' que tiene la tabla al metodo set
-        //                 releases.create(req.body.releases)
-        //                 .then( releases => {
-        //                     seguimiento.setRelease(releases); // Se quita la 's' que tiene la tabla al metodo set
-        //                     repositorio.create(req.body.repositorio)
-        //                     .then( repositorio => {
-        //                         seguimiento.setRepositorio(repositorio);
-        //                         requirements.create(req.body.requirements)
-        //                         .then( requirements => {
-        //                             seguimiento.setRequirement(requirements); // Se quita la 's' que tiene la tabla al metodo set
-        //                             testLab.create(req.body.testLab)
-        //                             .then( testLab => {
-        //                                 seguimiento.setTestLab(testLab);
-        //                                 usd.create(req.body.usd)
-        //                                 .then( usd => {
-        //                                     seguimiento.setUsd(usd);
-        //                                     res.status(200).send({ mensaje: "Guardado con exito", seguimiento: seguimiento})
-        //                                 })
-        //                             })
-        //                         })
-        //                     })
-        //                 })
-        //             })
-        //         })
-        //     })
-        // })
     })
 };
 
 module.exports = {
-    guardarSeguimiento: guardarSeguimiento,
-    crearSeguimiento: crearSeguimiento,
-    getSeguimiento: getSeguimiento,
-    getSeguimientos: getSeguimientos
+    guardarSeguimiento,
+    crearSeguimiento,
+    getSeguimiento,
+    getSeguimientos
 };

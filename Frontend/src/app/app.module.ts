@@ -29,7 +29,8 @@ import { FeatureRoutingModule } from './app.routes';
 import { OpcionesService } from './services/opciones/opciones.service';
 import { SeguimientoService } from './services/seguimiento/seguimiento.service';
 import { SeguimientosComponent } from './components/seguimientos/seguimientos.component';
-import { TesterService } from './services/tester/tester.service';
+import { UsuarioService } from './services/usuario/usuario.service';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TesterService } from './services/tester/tester.service';
     UsdFormComponent,
     SeguimientoComponent,
     NuevoSeguimientoComponent,
-    SeguimientosComponent
+    SeguimientosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,7 @@ import { TesterService } from './services/tester/tester.service';
     HttpClientModule
     // MaterialModule
   ],
-  providers: [OpcionesService, SeguimientoService, TesterService],
+  providers: [OpcionesService, SeguimientoService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

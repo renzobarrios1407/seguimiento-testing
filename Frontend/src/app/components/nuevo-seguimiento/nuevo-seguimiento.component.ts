@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Seguimiento, Tester } from '../../models';
+import { Seguimiento, Usuario } from '../../models';
 import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
 import { Router } from '@angular/router';
-import { TesterService } from '../../services/tester/tester.service';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-nuevo-seguimiento',
@@ -11,18 +11,18 @@ import { TesterService } from '../../services/tester/tester.service';
 })
 export class NuevoSeguimientoComponent implements OnInit {
 
-  tester: Tester;
+  tester: Usuario;
   titulo = 'Nuevo Seguimiento';
   seguimiento: Seguimiento;
   // @Output() seguimientoChange: EventEmitter<seguimiento>;
   constructor(
     private segService: SeguimientoService,
     private router: Router,
-    private testerService: TesterService
+    private usuarioService: UsuarioService
   ) {
     this.seguimiento = new Seguimiento();
-    this.tester = new Tester('1111111', 'jorge', 'chagui', 'romero', 'medellin', 'jorge.chagui', '1234', 1);
-    testerService.setIdentidad(this.tester);
+    this.tester = new Usuario('1111111', 'jorge', 'chagui', 'romero', 'medellin', 'jorge.chagui', '1234', 1, 1);
+    usuarioService.setIdentidad(this.tester);
   }
 
   ngOnInit() {

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Rol } from '../../models';
 import { OpcionesService } from '../../services/opciones/opciones.service';
+import { Rol } from '../../models';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegistroComponent implements OnInit {
   roles: Rol[];
   constructor(private opcionesService: OpcionesService) { }
 
