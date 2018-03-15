@@ -1,46 +1,88 @@
 <div class="container">
-  <div class="card card-register mx-auto mt-5">
+  <div class="card card-register mx-auto mt-2">
     <div class="card-header">Registrar usuario</div>
+    <div *ngIf="errorMessage" class="alert alert-primary" role="alert">
+      {{errorMessage}}
+    </div>
     <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputName">Nombre(s)</label>
-          <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Ingresar nombre">
-
-        </div>
+      <form #formRegistro="ngForm" (ngSubmit)="registrar()">
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-6">
-              <label for="exampleInputLastName">Primer apellido</label>
-              <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Ingresar primer apellido">
+              <label for="nombre">Nombre(s)</label>
+              <input #nombre="ngModel" [(ngModel)]="usuario.nombre" name="nombre" class="form-control" id="nombre" type="text" aria-describedby="nameHelp"
+                placeholder="Ingresar nombre" required>
+              <div *ngIf="!nombre.valid && nombre.touched" class="alert alert-warning" role="alert">
+                Nombre(s) requerido!
+              </div>
             </div>
             <div class="col-md-6">
-              <label for="exampleInputLastName">Segundo apellido</label>
-              <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="ingresar segundo apellido">
+              <label for="cedula">Cedula</label>
+              <input #cedula="ngModel" [(ngModel)]="usuario.cedula" name="cedula" class="form-control" id="cedula" type="text" aria-describedby="nameHelp"
+                placeholder="Ingresar cedula" required>
+              <div *ngIf="!cedula.valid && cedula.touched" class="alert alert-warning" role="alert">
+                Cedula requerida!
+              </div>
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-6">
-              <label for="exampleInputEmail1">Lugar de Trabajo</label>
-              <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Ingresar lugar de trabajo">
+              <label for="primerApellido">Primer apellido</label>
+              <input #primerApellido="ngModel" [(ngModel)]="usuario.primerApellido" name="primerApellido" class="form-control" id="primerApellido"
+                type="text" aria-describedby="nameHelp" placeholder="Ingresar primer apellido" required>
+              <div *ngIf="!primerApellido.valid && primerApellido.touched" class="alert alert-warning" role="alert">
+                Primer apellido requerido!
+              </div>
             </div>
             <div class="col-md-6">
-              <label for="exampleInputEmail1">Usuario</label>
-              <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" placeholder="Ingresar usuario">
+              <label for="segundoApellido">Segundo apellido</label>
+              <input #segundoApellido="ngModel" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" class="form-control" id="segundoApellido"
+                type="text" aria-describedby="nameHelp" placeholder="ingresar segundo apellido">
+              <div *ngIf="!segundoApellido.valid && segundoApellido.touched" class="alert alert-warning" role="alert">
+                Usuario requerido!
+              </div>
             </div>
           </div>
         </div>
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-6">
-              <label for="exampleInputPassword1">Password</label>
-              <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+              <label for="lugarTrabajo">Lugar de Trabajo</label>
+              <input #lugarTrabajo="ngModel" [(ngModel)]="usuario.lugarTrabajo" name="lugarTrabajo" class="form-control" id="lugarTrabajo"
+                type="text" aria-describedby="emailHelp" placeholder="Ingresar lugar de trabajo" required>
+              <div *ngIf="!lugarTrabajo.valid && lugarTrabajo.touched" class="alert alert-warning" role="alert">
+                Lugar de trabajo requerido!
+              </div>
             </div>
             <div class="col-md-6">
-              <label for="exampleConfirmPassword">Confirm password</label>
-              <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirmar password">
+              <label for="usuario">Usuario</label>
+              <input #user="ngModel" [(ngModel)]="usuario.usuario" name="usuario" class="form-control" id="usuario" type="text" aria-describedby="emailHelp"
+                placeholder="Ingresar usuario" required>
+              <div *ngIf="!user.valid && user.touched" class="alert alert-warning" role="alert">
+                Usuario requerido!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="password">Password</label>
+              <input #password="ngModel" [(ngModel)]="usuario.password" name="password" class="form-control" id="password" type="password"
+                placeholder="Password" required>
+              <div *ngIf="!password.valid && password.touched" class="alert alert-warning" role="alert">
+                Password requerido!
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="passwordConfirm">Confirmar password</label>
+              <input #passwordConfirm="ngModel" [(ngModel)]="usuario.passwordConfirm" name="passwordConfirm" class="form-control" id="passwordConfirm"
+                type="password" placeholder="Confirmar password" required>
+              <div *ngIf="!passwordConfirm.valid && passwordConfirm.touched" class="alert alert-warning" role="alert">
+                Confirmar password requerido!
+              </div>
             </div>
           </div>
         </div>
@@ -49,16 +91,20 @@
             <div class="col-md-8 mx-auto">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Rol</label>
+                  <label class="input-group-text" for="rolId">Rol</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option *ngFor="let rol of roles" value="rol.id">{{rol.nombre}}</option>
+                <select #rol="ngModel" [(ngModel)]="usuario.rolId" name="rolId" class="custom-select" id="rolId" required>
+                  <option *ngFor="let rol of roles" [value]="rol.id">{{rol.nombre}}</option>
                 </select>
+
+              </div>
+              <div *ngIf="!rol.valid && rol.touched" class="alert alert-warning" role="alert">
+                Rol requerido!
               </div>
             </div>
           </div>
         </div>
-        <a class="btn btn-primary btn-block" href="login.html">Register</a>
+        <button [disabled]="!formRegistro.valid" class="btn btn-primary btn-block" type="submit">Register</button>
       </form>
     </div>
   </div>

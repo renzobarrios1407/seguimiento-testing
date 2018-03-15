@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Seguimiento } from '../../models/seguimiento';
+import { GLOBAL } from '../global';
 
 @Injectable()
 export class SeguimientoService {
-  private url = 'http://localhost:3000/seguimiento';
+  private url: string;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.url = GLOBAL.url + '/seguimiento';
+   }
 
   public crearSeguimiento(seguimiento: Seguimiento, idTester: string | number) {
     const mensaje = {

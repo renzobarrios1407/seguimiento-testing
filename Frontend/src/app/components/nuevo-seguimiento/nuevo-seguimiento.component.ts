@@ -22,8 +22,6 @@ export class NuevoSeguimientoComponent implements OnInit {
     private usuarioService: UsuarioService
   ) {
     this.seguimiento = new Seguimiento();
-    this.tester = new Usuario('1111111', 'jorge', 'chagui', 'romero', 'medellin', 'jorge.chagui', '1234', 1, 1);
-    usuarioService.setIdentidad(this.tester);
   }
 
   ngOnInit() {

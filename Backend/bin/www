@@ -25,10 +25,24 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 models.sequelize.sync().then(function () {
-console.log("conectado a la BD");
+  console.log("conectado a la BD");
+  models.rol.findOrCreate({
+    where: {
+      nombre: "tester",
+      descripcion: "Puede crear PMO"
+    }
+  }).spread((rol, created) => {
+    models.rol.findOrCreate({
+      where: {
+        nombre: "auditor",
+        descripcion: "Puede revisar PMO"
+      }
+    }).spread((rol, created) => {
 
+    })
+  });
   //Se crean las tablas
-  
+
   /**
    * Listen on provided port, on all network interfaces.
    */

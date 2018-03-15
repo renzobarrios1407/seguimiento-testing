@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //Importacion de rutas
 var seguimiento = require('./routers/seguimiento')
 var usuario = require('./routers/usuario')
+var rol = require('./routers/rol')
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 //Uso de Middlewares de rutas
 app.use('/seguimiento', seguimiento);
 app.use('/usuario', usuario);
+app.use('/rol', rol);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

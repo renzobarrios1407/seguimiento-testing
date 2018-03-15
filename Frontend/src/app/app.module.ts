@@ -31,6 +31,7 @@ import { SeguimientoService } from './services/seguimiento/seguimiento.service';
 import { SeguimientosComponent } from './components/seguimientos/seguimientos.component';
 import { UsuarioService } from './services/usuario/usuario.service';
 import { RegistroComponent } from './components/registro/registro.component';
+import { RolService } from './services/rol/rol.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { RegistroComponent } from './components/registro/registro.component';
     HttpClientModule
     // MaterialModule
   ],
-  providers: [OpcionesService, SeguimientoService, UsuarioService],
+  providers: [OpcionesService, SeguimientoService, UsuarioService, RolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

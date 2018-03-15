@@ -1,4 +1,6 @@
 export class Usuario {
+  getHash: any;
+  passwordConfirm = null;
     constructor(
         public cedula: string,
         public nombre: string,

@@ -1,14 +1,8 @@
-<div>
+<div *ngIf="identidad">
     <header>
-    <!-- Nabvar -->
-    <app-navbar></app-navbar>
-    <!-- Nabvar -->
+    <app-navbar [(identidad)] = "identidad"></app-navbar>
 </header>
 
-
-<!-- <div class="container main-container">
-    <router-outlet></router-outlet>
-</div> -->
 <div class="content-wrapper">
     <div class="container-fluid">
         <router-outlet></router-outlet>
@@ -24,7 +18,23 @@
 </div>
 
 
-<div *ngIf="identidad" class="row justify-content-center">
+<!-- <div *ngIf="identidad" class="row justify-content-center">
     <app-login></app-login>
     <app-registro></app-registro>
+</div> -->
+<div *ngIf="!identidad" class="justify-content-center">
+    <div class="col-md-3 mx-auto text-center">
+            <button (click)="onClick()" type="button" class="btn btn-light">
+                {{texto}}
+            </button>
+        </div>
+    <div class="row">
+        
+        <app-login [(identidad)] = "identidad" *ngIf="login" class="w-100"></app-login>
+        <app-registro *ngIf="!login" class="w-100"></app-registro>
+        
+    </div>
+
+
+
 </div>
