@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OpcionesService } from '../../services/opciones/opciones.service';
-import { Rol } from '../../models';
+import { Rol } from '../../models/rol';
 
 @Component({
   selector: 'app-registro',

@@ -4,7 +4,7 @@ var secret = 's3gu1m13nt0_t3st1ng';
 
 exports.crearToken = function(usuario){
     var payload = {
-        sub: usuario.id,
+        id: usuario.id,
         nombre: usuario.nombre,
         cedula: usuario.cedula,
         primerApellido: usuario.primerApellido,

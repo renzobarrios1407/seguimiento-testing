@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
-import { Seguimiento, Usuario } from '../../models';
 import { UsuarioService } from '../../services/usuario/usuario.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-seguimientos',

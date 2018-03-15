@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Defects } from '../../models';
+import { Defects } from '../../models/defects';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

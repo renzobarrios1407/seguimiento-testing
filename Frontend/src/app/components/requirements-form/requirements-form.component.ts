@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Requirements } from '../../models';
+import { Requirements } from '../../models/requirements';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Rol } from '../../models';
+import { Rol } from '../../models/rol';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

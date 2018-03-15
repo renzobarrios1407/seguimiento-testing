@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CartaDeCertificacion } from '../../models';
+import { CartaDeCertificacion } from '../../models/carta-de-certificacion';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

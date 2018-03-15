@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AgendaDeAmbiente } from '../../models';
+import { AgendaDeAmbiente } from '../../models/agenda-de-ambiente';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Seguimiento } from '../../models';
+import { Seguimiento } from '../../models/seguimiento';
 
 @Injectable()
 export class SeguimientoService {
@@ -17,13 +17,13 @@ export class SeguimientoService {
       },
       seguimiento: seguimiento
     };
-    return this.http.post<Seguimiento>(this.url, JSON.stringify(mensaje), this.httpOptions);
+    return this.http.post<Seguimiento>(this.url + '/crear', JSON.stringify(mensaje), this.httpOptions);
   }
   public getSeguimiento(idSeguimiento: string | number, testerId: string | number) {
-    return this.http.get(this.url + '/' + idSeguimiento + '/' + testerId , this.httpOptions);
+    return this.http.get(this.url + '/get/' + idSeguimiento + '/' + testerId , this.httpOptions);
   }
   public getSeguimientos(idTester: string | number) {
-    return this.http.get<Seguimiento[]>(this.url + '/' + idTester , this.httpOptions);
+    return this.http.get<Seguimiento[]>(this.url + '/getAll/' + idTester , this.httpOptions);
   }
 
   public saveSeguimiento(idSeguimiento: string | number, datos: any) {

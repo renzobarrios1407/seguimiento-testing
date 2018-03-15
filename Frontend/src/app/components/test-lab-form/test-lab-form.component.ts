@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TestLab } from '../../models';
+import { TestLab } from '../../models/test-lab';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

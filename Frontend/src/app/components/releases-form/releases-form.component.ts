@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Releases } from '../../models';
+import { Releases } from '../../models/releases';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({

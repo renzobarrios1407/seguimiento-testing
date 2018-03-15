@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DoDDdTVSTS } from '../../models';
+import { DoDDdTVSTS } from '../../models/dod-ddt-vsts';
 import { OpcionesService } from '../../services/opciones/opciones.service';
 
 @Component({
