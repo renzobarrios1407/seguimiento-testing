@@ -1,47 +1,47 @@
 <div id="accordion">
     <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
         <div class="card-body">
-            <app-releases-form [releases]="releases"></app-releases-form>
+            <app-releases-form [releases]="releases" [seguimientoId] = "seguimiento.id"></app-releases-form>
         </div>
     </div>
     <div id="collapseRequirements" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
         <div class="card-body">
-            <app-requirements-form [requirements]="requirements"></app-requirements-form>
+            <app-requirements-form [requirements]="requirements" [seguimientoId] = "seguimiento.id"></app-requirements-form>
         </div>
     </div>
     <div id="collapseTestLab" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
         <div class="card-body">
-            <app-test-lab-form [testLab]="testLab"></app-test-lab-form>
+            <app-test-lab-form [testLab]="testLab" [seguimientoId] = "seguimiento.id"></app-test-lab-form>
         </div>
     </div>
     <div id="collapseDefects" class="collapse" aria-labelledby="headingReleases" data-parent="#accordion">
         <div class="card-body">
-            <app-defects-form [defects]="defects"></app-defects-form>
+            <app-defects-form [defects]="defects" [seguimientoId] = "seguimiento.id"></app-defects-form>
         </div>
     </div>
     <div id="collapseAgendaAmbiente" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
         <div class="card-body">
-            <app-agenda-ambiente-form [agendaDeAmbiente]="agendaDeAmbiente"></app-agenda-ambiente-form>
+            <app-agenda-ambiente-form [agendaDeAmbiente]="agendaDeAmbiente" [seguimientoId] = "seguimiento.id"></app-agenda-ambiente-form>
         </div>
     </div>
     <div id="collapseCartaCertificacion" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
         <div class="card-body">
-            <app-carta-certificacion-form [cartaDeCertificacion]="cartaDeCertificacion"></app-carta-certificacion-form>
+            <app-carta-certificacion-form [cartaDeCertificacion]="cartaDeCertificacion" [seguimientoId] = "seguimiento.id"></app-carta-certificacion-form>
         </div>
     </div>
     <div id="collapseRepositorio" class="collapse" aria-labelledby="headingReleases" data-parent="#accordion">
         <div class="card-body">
-            <app-repositorio-form [repositorio]="repositorio"></app-repositorio-form>
+            <app-repositorio-form [repositorio]="repositorio" [seguimientoId] = "seguimiento.id"></app-repositorio-form>
         </div>
     </div>
     <div id="collapseDod" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
         <div class="card-body">
-            <app-dod-ddt-vsts-form [doDDdTVSTS]="doDDdTVSTS"></app-dod-ddt-vsts-form>
+            <app-dod-ddt-vsts-form [doDDdTVSTS]="doDDdTVSTS" [seguimientoId] = "seguimiento.id"></app-dod-ddt-vsts-form>
         </div>
     </div>
     <div id="collapseUSD" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
         <div class="card-body">
-            <app-usd-form [usd]="usd"></app-usd-form>
+            <app-usd-form [usd]="usd" [seguimientoId] = "seguimiento.id"></app-usd-form>
         </div>
     </div>
 

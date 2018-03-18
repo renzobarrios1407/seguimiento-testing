@@ -1,5 +1,7 @@
 var auditor = require('../models').usuario;
 var doDDdTVSTS = require('../models').doDDdTVSTS;
+var seguimiento = require('../models').seguimiento;
+var upsert = require('../services/upsert');
 //peticion
 /* 
     {
@@ -36,6 +38,29 @@ var revisar = function (req, res, next) {
         )
 }
 
+var guardar = function (req, res, next) {
+    //{
+    //     seguimientoId: seguimiento.id,
+    //     doDDdTVSTS: this.doDDdTVSTS
+    //}
+    var params = req.body;
+    seguimiento.findById(params.seguimientoId)
+        .then(seguimiento => {
+            upsert.upsert(doDDdTVSTS, params.doDDdTVSTS, { id: params.doDDdTVSTS.id })
+                .then(bloque => {
+                    seguimiento.setDoDDdTVST(bloque).then(result => {
+                        res.status(200).send({ mensaje: "Guardado con exito", seguimiento: seguimiento })
+                    }).catch(error => {
+                        res.status(500).send({ mensaje: "Fallo al guardar", seguimiento: seguimiento })
+                    });
+                }).catch(error => {
+                    res.status(500).send({ mensaje: "Fallo al guardar", seguimiento: seguimiento })
+                });
+
+        })
+}
+
 module.exports = {
-    revisar
+    revisar,
+    guardar
 }

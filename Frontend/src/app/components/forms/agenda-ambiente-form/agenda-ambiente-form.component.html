@@ -1,18 +1,20 @@
 <app-title [titulo]="titulo"></app-title>
 <div class="container">
   <div class="col-md-8 mx-auto padding">
-    <form>
+    <form (ngSubmit)="guardar()">
       <div class="row align-items-end">
         <div class="col-sm-6">
           <div class="form-group">
             <label for="iDAgendaDeAmbiente">ID Agenda de ambiente</label>
-            <input type="number" id="iDAgendaDeAmbiente" class="form-control" [(ngModel)]="agendaDeAmbiente.iDAgendaDeAmbiente" name="iDAgendaDeAmbiente" />
+            <input type="number" id="iDAgendaDeAmbiente" class="form-control" [(ngModel)]="agendaDeAmbiente.iDAgendaDeAmbiente" name="iDAgendaDeAmbiente"
+            />
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
             <label for="ultimaVersionFormato">Última versión formato</label>
-            <select id="ultimaVersionFormato" class="custom-select form-control" [(ngModel)]="agendaDeAmbiente.ultimaVersionFormato" name="ultimaVersionFormato">
+            <select id="ultimaVersionFormato" class="custom-select form-control" [(ngModel)]="agendaDeAmbiente.ultimaVersionFormato"
+              name="ultimaVersionFormato">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
           </div>
@@ -28,7 +30,8 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label for="presntAgendDeAmbntsYSeEncntrEnEstAprob">Presenta agendamiento de ambientes y se encuentra en estado 'Aprobado'</label>
-            <select id="presntAgendDeAmbntsYSeEncntrEnEstAprob" class="custom-select" [(ngModel)]="agendaDeAmbiente.presntAgendDeAmbntsYSeEncntrEnEstAprob" name="presntAgendDeAmbntsYSeEncntrEnEstAprob">
+            <select id="presntAgendDeAmbntsYSeEncntrEnEstAprob" class="custom-select" [(ngModel)]="agendaDeAmbiente.presntAgendDeAmbntsYSeEncntrEnEstAprob"
+              name="presntAgendDeAmbntsYSeEncntrEnEstAprob">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
           </div>
@@ -40,6 +43,14 @@
             <select id="diligenDeSharepoint" class="custom-select" [(ngModel)]="agendaDeAmbiente.diligenDeSharepoint" name="diligenDeSharepoint">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mb-4">
+        <div class="col-md-6 mx-auto">
+          <button type="submit" class="btn btn-outline-success">guardar</button>
+          <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+            {{errorMessage}}
           </div>
         </div>
       </div>

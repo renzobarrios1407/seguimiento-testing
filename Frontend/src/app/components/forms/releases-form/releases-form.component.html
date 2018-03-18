@@ -1,7 +1,7 @@
 <app-title [titulo]="titulo"></app-title>
 <div class="container">
   <div class="col-md-8 mx-auto padding">
-    <form>
+    <form (ngSubmit)="guardar()">
       <div class="row align-items-end">
         <div class="col-sm-6">
           <div class="form-group">
@@ -63,6 +63,14 @@
             <select id="carptsSetPruebasAsignsAlCiclo" class="custom-select" [(ngModel)]="releases.carptsSetPruebasAsignsAlCiclo" name="carptsSetPruebasAsignsAlCiclo">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mb-4">
+        <div class="col-md-6 mx-auto">
+          <button type="submit" class="btn btn-outline-success">guardar</button>
+          <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+            {{errorMessage}}
           </div>
         </div>
       </div>
