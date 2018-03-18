@@ -22,11 +22,17 @@ export class SeguimientoService {
     };
     return this.http.post<Seguimiento>(this.url + '/crear', JSON.stringify(mensaje), this.httpOptions);
   }
-  public getSeguimiento(idSeguimiento: string | number, testerId: string | number) {
+  public getSeguimientoTester(idSeguimiento: string | number, testerId: string | number) {
     return this.http.get(this.url + '/get/' + idSeguimiento + '/' + testerId , this.httpOptions);
   }
-  public getSeguimientos(idTester: string | number) {
+  public getSeguimiento(idSeguimiento: string | number) {
+    return this.http.get(this.url + '/get/' + idSeguimiento , this.httpOptions);
+  }
+  public getSeguimientosTester(idTester: string | number) {
     return this.http.get<Seguimiento[]>(this.url + '/getAll/' + idTester , this.httpOptions);
+  }
+  public getSeguimientos() {
+    return this.http.get<Seguimiento[]>(this.url + '/getAll' , this.httpOptions);
   }
 
   public saveSeguimiento(idSeguimiento: string | number, datos: any) {

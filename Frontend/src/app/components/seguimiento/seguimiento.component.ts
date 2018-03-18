@@ -21,6 +21,7 @@ import { Usd } from '../../models/usd';
   styleUrls: ['./seguimiento.component.css']
 })
 export class SeguimientoComponent implements OnInit {
+  errorMessage: any;
   tester: Usuario;
   seguimiento: Seguimiento;
   agendaDeAmbiente: AgendaDeAmbiente;
@@ -42,26 +43,26 @@ export class SeguimientoComponent implements OnInit {
   ngOnInit() {
     this.tester = this.usuarioService.getIdentidad();
     this.route.params.subscribe(params => {
-      this.segService.getSeguimiento(params.id, this.tester.id).subscribe(
+      this.segService.getSeguimientoTester(params.id, this.tester.id).subscribe(
         respuesta => {
-        console.log(respuesta);
-        this.seguimiento = respuesta['seguimiento'];
-        // Crear los demás objetos si existen
+          console.log(respuesta);
+          this.seguimiento = respuesta['seguimiento'];
+          // Crear los demás objetos si existen
 
-        this.agendaDeAmbiente = (respuesta['agendaDeAmbiente']) ? respuesta['agendaDeAmbiente'] : new AgendaDeAmbiente();
-        this.cartaDeCertificacion = (respuesta['cartaDeCertificacion']) ? respuesta['cartaDeCertificacion'] : new CartaDeCertificacion();
-        this.defects = (respuesta['defects']) ? respuesta['defects'] : new Defects();
-        this.doDDdTVSTS = (respuesta['doDDdTVSTS']) ? respuesta['doDDdTVSTS'] : new DoDDdTVSTS();
-        this.releases = (respuesta['releases']) ? respuesta['releases'] : new Releases();
-        this.repositorio = (respuesta['repositorio']) ? respuesta['repositorio'] : new Repositorio();
-        this.requirements = (respuesta['requirements']) ? respuesta['requirements'] : new Requirements();
-        this.testLab = (respuesta['testLab']) ? respuesta['testLab'] : new TestLab();
-        this.usd = (respuesta['usd']) ? respuesta['usd'] : new Usd();
-      },
-      error => {
-        console.log('no existe el seguimiento');
-        this.router.navigate(['/nuevo-seguimiento']);
-      });
+          this.agendaDeAmbiente = (respuesta['agendaDeAmbiente']) ? respuesta['agendaDeAmbiente'] : new AgendaDeAmbiente();
+          this.cartaDeCertificacion = (respuesta['cartaDeCertificacion']) ? respuesta['cartaDeCertificacion'] : new CartaDeCertificacion();
+          this.defects = (respuesta['defects']) ? respuesta['defects'] : new Defects();
+          this.doDDdTVSTS = (respuesta['doDDdTVSTS']) ? respuesta['doDDdTVSTS'] : new DoDDdTVSTS();
+          this.releases = (respuesta['releases']) ? respuesta['releases'] : new Releases();
+          this.repositorio = (respuesta['repositorio']) ? respuesta['repositorio'] : new Repositorio();
+          this.requirements = (respuesta['requirements']) ? respuesta['requirements'] : new Requirements();
+          this.testLab = (respuesta['testLab']) ? respuesta['testLab'] : new TestLab();
+          this.usd = (respuesta['usd']) ? respuesta['usd'] : new Usd();
+        },
+        error => {
+          console.log('no existe el seguimiento');
+          this.router.navigate(['/nuevo-seguimiento']);
+        });
     });
   }
 
@@ -86,11 +87,15 @@ export class SeguimientoComponent implements OnInit {
 
     this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(
       respuesta => {
-      console.log(respuesta);
-      this.router.navigate(['/seguimientos']);
+        console.log(respuesta);
+        this.router.navigate(['/seguimientos']);
       },
       error => {
-        console.log('error');
+        const errorMessage = <any>error;
+        if (errorMessage != null) {
+          console.log(error);
+          this.errorMessage = error.error.mensaje;
+        }
       }
     );
   }

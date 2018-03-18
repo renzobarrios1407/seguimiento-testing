@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     AgendaDeAmbiente.associate = function (models) {
         //Agenda de Ambiente pertenece a un Seguimiento
         models.agendaDeAmbiente.belongsTo(models.seguimiento);
+        models.agendaDeAmbiente.belongsTo(models.usuario, {as: 'auditor', foreignKey: 'auditorId'});
     };
     return AgendaDeAmbiente;
 }

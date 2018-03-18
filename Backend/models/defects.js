@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     Defects.associate = function (models) {
         //Defects pertenece a un Seguimiento
         models.defects.belongsTo(models.seguimiento);
+        models.defects.belongsTo(models.usuario, {foreignKey: 'auditorId'});
     };
     return Defects;
 }

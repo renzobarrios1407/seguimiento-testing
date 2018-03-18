@@ -7,11 +7,13 @@ import { AgendaAmbienteFormComponent } from './components/agenda-ambiente-form/a
 import { SeguimientoComponent } from './components/seguimiento/seguimiento.component';
 import { NuevoSeguimientoComponent } from './components/nuevo-seguimiento/nuevo-seguimiento.component';
 import { SeguimientosComponent } from './components/seguimientos/seguimientos.component';
+import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/revisar-seguimiento.component';
 
 
 const routes: Routes = [
     { path: 'seguimiento/:id', component: SeguimientoComponent },
     { path: 'seguimientos', component: SeguimientosComponent },
+    { path: 'revisar-seguimiento/:id', component: RevisarSeguimientoComponent },
     { path: 'login', component: LoginComponent },
     { path: 'nuevo-seguimiento', component: NuevoSeguimientoComponent },
     { path: '**', redirectTo: 'seguimientos', pathMatch: 'full' }

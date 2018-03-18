@@ -99,9 +99,32 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Usuario.associate = function (models) {
-        //Usuario tiene muchos Seguimientos
-        models.usuario.hasMany(models.seguimiento, {foreignKey: 'testerId'});
         models.usuario.belongsTo(models.rol);
+        // Tester
+        //Usuario/Tester tiene muchos Seguimientos
+        models.usuario.hasMany(models.seguimiento, {foreignKey: 'testerId'});
+        // Auditor
+        //Usuario/Auditor tiene muchas Revisiones
+        //bloque se seguimiento
+        //Agenda de ambiente
+        models.usuario.hasMany(models.agendaDeAmbiente, {foreignKey: 'auditorId'});
+        //Carta de certificación
+        models.usuario.hasMany(models.cartaDeCertificacion, {foreignKey: 'auditorId'});
+        //defects
+        models.usuario.hasMany(models.defects, {foreignKey: 'auditorId'});
+        //doDDdTVSTS
+        models.usuario.hasMany(models.doDDdTVSTS, {foreignKey: 'auditorId'});
+        //releases
+        models.usuario.hasMany(models.releases, {foreignKey: 'auditorId'});
+        //repositorio
+        models.usuario.hasMany(models.repositorio, {foreignKey: 'auditorId'});
+        //requirements
+        models.usuario.hasMany(models.requirements, {foreignKey: 'auditorId'});
+        //testLab
+        models.usuario.hasMany(models.testLab, {foreignKey: 'auditorId'});
+        //usd
+        models.usuario.hasMany(models.usd, {foreignKey: 'auditorId'});
+        
     };
     return Usuario;
 }

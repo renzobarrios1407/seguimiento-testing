@@ -32,6 +32,7 @@ import { SeguimientosComponent } from './components/seguimientos/seguimientos.co
 import { UsuarioService } from './services/usuario/usuario.service';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RolService } from './services/rol/rol.service';
+import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/revisar-seguimiento.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { RolService } from './services/rol/rol.service';
     SeguimientoComponent,
     NuevoSeguimientoComponent,
     SeguimientosComponent,
-    RegistroComponent
+    RegistroComponent,
+    RevisarSeguimientoComponent
   ],
   imports: [
     BrowserModule,

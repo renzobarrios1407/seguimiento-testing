@@ -1,4 +1,3 @@
-
 <div id="accordion">
     <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
         <div class="card-body">
@@ -50,53 +49,9 @@
         <div class="col-md-6 mx-auto">
             <button (click)="atras()" type="button" class="btn btn-outline-primary">Atras</button>
             <button (click)="enviar()" type="button" class="btn btn-outline-success">Enviar</button>
+            <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+                {{errorMessage}}
+            </div>
         </div>
     </div>
 </div>
-
-
-<!-- <div id="accordion">
-    <div class="mb-2">
-        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingReleases">
-            <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseReleases" aria-expanded="true" aria-controls="collapseReleases">
-                    Releases
-                </button>
-            </h5>
-        </div>
-
-        <div id="collapseReleases" class="collapse show" aria-labelledby="headingReleases" data-parent="#accordion">
-            <div class="card-body">
-                <app-releases-form></app-releases-form>
-            </div>
-        </div>
-    </div>
-    <div class="mb-2">
-        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingRequirements">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseRequirements" aria-expanded="false" aria-controls="collapseRequirements">
-                    Requirements
-                </button>
-            </h5>
-        </div>
-        <div id="collapseRequirements" class="collapse" aria-labelledby="headingRequirements" data-parent="#accordion">
-            <div class="card-body">
-                <app-requirements-form></app-requirements-form>
-            </div>
-        </div>
-    </div>
-    <div class="mb-2">
-        <div class="text-center card-header col-md-4 col-12 mx-auto border-primary" id="headingTestLab">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTestLab" aria-expanded="false" aria-controls="collapseTestLab">
-                    Test Lab
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTestLab" class="collapse" aria-labelledby="headingTestLab" data-parent="#accordion">
-            <div class="card-body">
-                <app-test-lab-form></app-test-lab-form>
-            </div>
-        </div>
-    </div>
-</div> -->

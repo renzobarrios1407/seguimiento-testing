@@ -15,6 +15,7 @@
     "moment": "^2.20.1",
     "morgan": "~1.9.0",
     "mysql2": "^1.5.2",
+    "npm": "^5.7.1",
     "sequelize": "^4.35.0",
     "serve-favicon": "~2.4.5"
   },

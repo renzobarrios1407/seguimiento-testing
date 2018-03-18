@@ -9,8 +9,8 @@ import { Usuario } from '../../models/usuario';
   styleUrls: ['./seguimientos.component.css']
 })
 export class SeguimientosComponent implements OnInit {
-  titulo = 'Seguimientos Pendientes';
-  tester: Usuario;
+  titulo = 'Seguimientos';
+  identidad: Usuario;
   seguimientos: any[];
   constructor(
     private segService: SeguimientoService,
@@ -18,13 +18,23 @@ export class SeguimientosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tester = this.usuarioService.getIdentidad();
-    this.segService.getSeguimientos(this.tester.id).subscribe(
+    this.identidad = this.usuarioService.getIdentidad();
+    if (this.identidad.rolId === 1) {
+      this.segService.getSeguimientosTester(this.identidad.id).subscribe(
       resultado => {
         console.log(resultado);
         this.seguimientos = resultado;
       }
     );
+    }
+    if (this.identidad.rolId === 2) {
+      this.segService.getSeguimientos().subscribe(
+      resultado => {
+        console.log(resultado);
+        this.seguimientos = resultado;
+      }
+    );
+    }
   }
 
 }

@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var seguimiento = require('./routers/seguimiento')
 var usuario = require('./routers/usuario')
 var rol = require('./routers/rol')
+var revision = require('./routers/revision')
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 app.use('/seguimiento', seguimiento);
 app.use('/usuario', usuario);
 app.use('/rol', rol);
+app.use('/revision', revision);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

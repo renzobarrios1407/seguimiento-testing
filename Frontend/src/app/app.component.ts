@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   identidad: Usuario;
   token: any;
   login = true;
-  texto = 'Ya tienes cuenta?, Ingresa con ella';
+  texto = 'Aún no tienes cuenta? registrate';
 
   constructor (private usuarioService: UsuarioService) {}
   onClick() {
