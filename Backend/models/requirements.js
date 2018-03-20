@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     Requirements.associate = function (models) {
         //Requirements pertenece a un Seguimiento
         models.requirements.belongsTo(models.seguimiento);
-        models.requirements.belongsTo(models.usuario, {foreignKey: 'auditorId'});
+        models.requirements.belongsTo(models.usuario, {as: 'auditor', foreignKey: 'auditorId'});
     };
     return Requirements;
 }

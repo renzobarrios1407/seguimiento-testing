@@ -30,7 +30,11 @@ export class RequirementsFormComponent implements OnInit {
   guardar() {
     this.segService.saveRequirements(this.seguimientoId, this.requirements).subscribe(
       respuesta => {
-        console.log(respuesta);
+        const errorMessage = <any>respuesta;
+        if (errorMessage != null) {
+          console.log(respuesta);
+          this.errorMessage = respuesta['mensaje'];
+        }
       },
       error => {
         const errorMessage = <any>error;

@@ -20,7 +20,7 @@ export class RegistroComponent implements OnInit {
     private usuarioService: UsuarioService,
     private rolService: RolService
   ) {
-    this.usuario = new Usuario(null, null, null, null, null, null, null, null);
+    this.usuario = new Usuario(null, null, null, null, null, null, null, null, null);
   }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class RegistroComponent implements OnInit {
           this.errorMessage = 'Error al registrarse';
         } else {
           this.errorMessage = 'Registro exitoso, usa: ' + this.identidad.usuario + ' para ingresar';
-          this.usuario = new Usuario(null, null, null, null, null, null, null, null);
+          this.usuario = new Usuario(null, null, null, null, null, null, null, null, null);
         }
       },
       error => {

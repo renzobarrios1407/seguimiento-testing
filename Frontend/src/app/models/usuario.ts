@@ -8,6 +8,7 @@ export class Usuario {
         public segundoApellido: string,
         public lugarTrabajo: string,
         public usuario: string,
+        public email: string,
         public password: string,
         public rolId: number,
         public id?: number

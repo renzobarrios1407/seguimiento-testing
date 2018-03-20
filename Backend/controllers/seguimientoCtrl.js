@@ -61,7 +61,17 @@ var getSeguimientoTester = function (req, res, next) {
     })
 };
 var getSeguimiento = function (req, res, next) {
-    seguimiento.findOne({ where: { id: req.params.idSeguimiento }, include: [{ all: true }] }).then(
+    seguimiento.findOne({ where: { id: req.params.idSeguimiento }, include: [
+        { model: agendaDeAmbiente, include: [{ model: tester, as: "auditor" }] }, 
+        { model: cartaDeCertificacion, include: [{ model: tester, as: "auditor" }] }, 
+        { model: defects, include: [{ model: tester, as: "auditor" }] }, 
+        { model: doDDdTVSTS, include: [{ model: tester, as: "auditor" }] }, 
+        { model: releases, include: [{ model: tester, as: "auditor" }] }, 
+        { model: repositorio, include: [{ model: tester, as: "auditor" }] }, 
+        { model: requirements, include: [{ model: tester, as: "auditor" }] }, 
+        { model: testLab, include: [{ model: tester, as: "auditor" }] }, 
+        { model: usd, include: [{ model: tester, as: "auditor" }] }, 
+    ] }).then(
         resultado => {
             var respuesta = {
                 seguimiento: {
@@ -83,7 +93,9 @@ var getSeguimiento = function (req, res, next) {
             res.status(200).send(respuesta)
         }
     ).catch(error => {
-        res.status(404).send({ mensaje: "No se encontró el seguimiento" })
+        console.log(error);
+        
+        res.status(404).send({ mensaje: "No se encontró el seguimiento", error })
     })
 };
 var getSeguimientosTester = function (req, res, next) {

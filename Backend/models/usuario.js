@@ -92,6 +92,19 @@ module.exports = (sequelize, DataTypes) => {
                 }
             }
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: {
+                args: true,
+                msg: "El usuario ya está registrado"
+            },
+            validate: {
+                isEmail: {
+                    msg: "Ingrese un correo valido"
+                }
+            }
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false

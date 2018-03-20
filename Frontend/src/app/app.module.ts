@@ -33,7 +33,8 @@ import { UsuarioService } from './services/usuario/usuario.service';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RolService } from './services/rol/rol.service';
 import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/revisar-seguimiento.component';
-
+import { ReleasesRevisionComponent } from './components/revision/releases-revision/releases-revision.component';
+import { RevisionService } from './services/revision/revision.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/re
     NuevoSeguimientoComponent,
     SeguimientosComponent,
     RegistroComponent,
-    RevisarSeguimientoComponent
+    RevisarSeguimientoComponent,
+    ReleasesRevisionComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,13 @@ import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/re
     HttpClientModule
     // MaterialModule
   ],
-  providers: [OpcionesService, SeguimientoService, UsuarioService, RolService],
+  providers: [
+    OpcionesService,
+    SeguimientoService,
+    UsuarioService,
+    RolService,
+    RevisionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

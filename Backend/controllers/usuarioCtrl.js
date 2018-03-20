@@ -11,6 +11,7 @@ var registrarUsuario = function (req, res, next) {
         "segundoApellido": "sigilfredo",
         "lugarTrabajo": "medallo",
         "usuario": "felipito.rocotundo",
+        "email": "felipito.rocotundo@prueba.com",
         "password": "nomelase",
         "passwordConfirm": "nomelase",
         "rolId": "1",
@@ -57,7 +58,7 @@ var loginUsuario = function (req, res, next) {
     */
     var params = req.body;
     console.log(params);
-
+// agregar a email
     usuario.findOne({ where: { usuario: params.usuario } }).then(usuario => {
         if (usuario) {
             usuario.getRol().then(

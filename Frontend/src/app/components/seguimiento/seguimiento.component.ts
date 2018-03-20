@@ -38,7 +38,9 @@ export class SeguimientoComponent implements OnInit {
     private segService: SeguimientoService,
     private usuarioService: UsuarioService,
     private router: Router
-  ) { }
+  ) {
+    this.seguimiento =  new Seguimiento();
+  }
 
   ngOnInit() {
     this.tester = this.usuarioService.getIdentidad();

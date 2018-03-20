@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     CartaDeCertificacion.associate = function (models) {
         //Carta De Certificacion pertenece a un Seguimiento
         models.cartaDeCertificacion.belongsTo(models.seguimiento);
-        models.cartaDeCertificacion.belongsTo(models.usuario, {foreignKey: 'auditorId'});
+        models.cartaDeCertificacion.belongsTo(models.usuario, {as: 'auditor', foreignKey: 'auditorId'});
     };
     return CartaDeCertificacion;
 }

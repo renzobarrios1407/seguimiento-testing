@@ -1,0 +1,83 @@
+<div class="card">
+  <div class="card-header">
+    Releases
+  </div>
+  <div class="card-body">
+    <div *ngIf="releases.auditor" class="alert alert-success" role="alert">
+      Aprovado por: {{releases.auditor.usuario}}
+    </div>
+    <form #formReleaseRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="releases.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>ID Release en QC</th>
+            <td>{{releases.idReleaseQC}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="idReleaseQC" #chkidReleaseQC="ngModel" name="idReleaseQC" required> </td>
+          </tr>
+          <tr>
+            <th>Estandar de nombramiento de Release</th>
+            <td>{{releases.estandarNomDeRelease}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarNomDeRelease" #chkestandarNomDeRelease="ngModel" name="estandarNomDeRelease"
+                required> </td>
+          </tr>
+          <tr>
+            <th>Release ID = Agenda de ambiente</th>
+            <td>{{releases.releaseIdEqAgendaAmbiente}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="releaseIdEqAgendaAmbiente" #chkreleaseIdEqAgendaAmbiente="ngModel" name="releaseIdEqAgendaAmbiente"
+                required> </td>
+          </tr>
+          <tr>
+            <th>Tiene Fecha Real Cierre</th>
+            <td>{{releases.tieneFechaRealCierre}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="tieneFechaRealCierre" #chktieneFechaRealCierre="ngModel" name="tieneFechaRealCierre"
+                required> </td>
+          </tr>
+          <tr>
+            <th>Tiene Definición de terminado en Sprint\Release</th>
+            <td>{{releases.tieneDefDeTermiEnSprORel}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="tieneDefDeTermiEnSprORel" #chktieneDefDeTermiEnSprORel="ngModel" name="tieneDefDeTermiEnSprORel"
+                required> </td>
+          </tr>
+          <tr>
+            <th>Estado de Sprint</th>
+            <td>{{releases.estadoDeSprint}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="estadoDeSprint" #chkestadoDeSprint="ngModel" name="estadoDeSprint" required> </td>
+          </tr>
+          <tr>
+            <th>Requerimientos asignados al ciclo</th>
+            <td>{{releases.reqsAsignsAlCiclo}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="reqsAsignsAlCiclo" #chkreqsAsignsAlCiclo="ngModel" name="reqsAsignsAlCiclo"
+                required> </td>
+          </tr>
+          <tr>
+            <th>Carpetas de set de pruebas asignadas al ciclo</th>
+            <td>{{releases.carptsSetPruebasAsignsAlCiclo}}</td>
+            <td *ngIf="releases.auditor===null">
+              <input type="checkbox" [(ngModel)]="carptsSetPruebasAsignsAlCiclo" #chkcarptsSetPruebasAsignsAlCiclo="ngModel"
+                name="carptsSetPruebasAsignsAlCiclo" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formReleaseRevision.form.valid" *ngIf="releases.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

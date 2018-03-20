@@ -30,7 +30,11 @@ export class TestLabFormComponent implements OnInit {
   guardar() {
     this.segService.saveTestLab(this.seguimientoId, this.testLab).subscribe(
       respuesta => {
-        console.log(respuesta);
+        const errorMessage = <any>respuesta;
+        if (errorMessage != null) {
+          console.log(respuesta);
+          this.errorMessage = respuesta['mensaje'];
+        }
       },
       error => {
         const errorMessage = <any>error;

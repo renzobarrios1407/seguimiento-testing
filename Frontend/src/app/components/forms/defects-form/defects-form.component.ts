@@ -29,7 +29,11 @@ export class DefectsFormComponent implements OnInit {
   guardar() {
     this.segService.saveDefects(this.seguimientoId, this.defects).subscribe(
       respuesta => {
-        console.log(respuesta);
+        const errorMessage = <any>respuesta;
+        if (errorMessage != null) {
+          console.log(respuesta);
+          this.errorMessage = respuesta['mensaje'];
+        }
       },
       error => {
         const errorMessage = <any>error;

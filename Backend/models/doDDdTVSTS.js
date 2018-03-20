@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
     DoDDdTVSTS.associate = function (models) {
         //DoDDdTVSTS pertenece a un Seguimiento
         models.doDDdTVSTS.belongsTo(models.seguimiento);
-        models.doDDdTVSTS.belongsTo(models.usuario, {foreignKey: 'auditorId'});
+        models.doDDdTVSTS.belongsTo(models.usuario, {as: 'auditor', foreignKey: 'auditorId'});
     };
     return DoDDdTVSTS;
 }

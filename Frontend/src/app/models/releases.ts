@@ -1,4 +1,5 @@
 export class Releases {
+  auditor: any;
     constructor(
         public id?: number,
         // Estandar de nombramiento de Release

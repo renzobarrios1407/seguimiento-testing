@@ -64,9 +64,12 @@ export class RevisarSeguimientoComponent implements OnInit {
         this.usd = (respuesta['usd']);
       },
       error => {
-        console.log('no existe el seguimiento');
+        console.log(error);
         this.router.navigate(['/nuevo-seguimiento']);
       });
     });
+  }
+  atras() {
+    this.router.navigate(['/seguimientos']);
   }
 }

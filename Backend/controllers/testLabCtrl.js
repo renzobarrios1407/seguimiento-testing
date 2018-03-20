@@ -5,12 +5,13 @@ var upsert = require('../services/upsert');
 //peticion
 /* 
     {
-        "auditorId": 1
+        "auditorId": 1,
+        "id": 1
     }
 */
 
 var revisar = function (req, res, next) {
-    testLab.findById(req.params.id)
+    testLab.findById(req.body.id)
         .then(
             instanceBloque => {
                 auditor.findById(req.body.auditorId).then(

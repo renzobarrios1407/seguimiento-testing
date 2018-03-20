@@ -29,7 +29,11 @@ export class RepositorioFormComponent implements OnInit {
   guardar() {
     this.segService.saveRepositorio(this.seguimientoId, this.repositorio).subscribe(
       respuesta => {
-        console.log(respuesta);
+        const errorMessage = <any>respuesta;
+        if (errorMessage != null) {
+          console.log(respuesta);
+          this.errorMessage = respuesta['mensaje'];
+        }
       },
       error => {
         const errorMessage = <any>error;

@@ -5,19 +5,22 @@ var upsert = require('../services/upsert');
 //peticion
 /* 
     {
-        "auditorId": 1
+        "auditorId": 1,
+        "id": 1
     }
 */
 
 var revisar = function (req, res, next) {
-    releases.findById(req.params.id)
+    releases.findById(req.body.id)
         .then(
             instanceBloque => {
                 auditor.findById(req.body.auditorId).then(
                     auditor => {
                         instanceBloque.setAuditor(auditor).then(
                             result => {
-                                res.status(200).send({ mensaje: "Revisado con éxito" });
+                                console.log(result);
+                                
+                                res.status(200).send({ mensaje: "Revisado con éxito", result });
                             }
                         ).catch(
                             err => {
@@ -27,13 +30,13 @@ var revisar = function (req, res, next) {
                     }
                 ).catch(
                     err => {
-                        res.status(500).send({ mensaje: "No se pudo revisar" });
+                        res.status(500).send({ mensaje: "No se encontró el auditor" });
                     }
                 )
             }
         ).catch(
             err => {
-                res.status(500).send({ mensaje: "No se pudo revisar" });
+                res.status(500).send({ mensaje: "No se encontró Releases" });
             }
         )
 }

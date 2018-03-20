@@ -29,7 +29,11 @@ export class DodDdtVstsFormComponent implements OnInit {
   guardar() {
     this.segService.saveDoDDdTVSTS(this.seguimientoId, this.doDDdTVSTS).subscribe(
       respuesta => {
-        console.log(respuesta);
+        const errorMessage = <any>respuesta;
+        if (errorMessage != null) {
+          console.log(respuesta);
+          this.errorMessage = respuesta['mensaje'];
+        }
       },
       error => {
         const errorMessage = <any>error;

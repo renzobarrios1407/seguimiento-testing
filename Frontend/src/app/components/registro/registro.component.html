@@ -5,7 +5,7 @@
       {{errorMessage}}
     </div>
     <div class="card-body">
-      <form #formRegistro="ngForm" (ngSubmit)="registrar()">
+      <form #formRegistro="ngForm" (ngSubmit)="registrar(); formRegistro.reset()">
         <div class="form-group">
           <div class="form-row">
             <div class="col-md-6">
@@ -88,16 +88,19 @@
         </div>
         <div class="form-group">
           <div class="form-row">
-            <div class="col-md-8 mx-auto">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="rolId">Rol</label>
-                </div>
-                <select #rol="ngModel" [(ngModel)]="usuario.rolId" name="rolId" class="custom-select" id="rolId" required>
-                  <option *ngFor="let rol of roles" [value]="rol.id">{{rol.nombre}}</option>
-                </select>
-
+            <div class="col-md-6">
+              <label for="email">Email</label>
+              <input #email="ngModel" [(ngModel)]="usuario.email" name="email" class="form-control" id="email" type="email" placeholder="Ejemplo@test.com"
+                required>
+              <div *ngIf="!email.valid && email.touched" class="alert alert-warning" role="alert">
+                Email requerido!
               </div>
+            </div>
+            <div class="col-md-6">
+              <label for="rolId">Rol</label>
+              <select #rol="ngModel" [(ngModel)]="usuario.rolId" name="rolId" class="custom-select" id="rolId" required>
+                <option *ngFor="let rol of roles" [value]="rol.id">{{rol.nombre}}</option>
+              </select>
               <div *ngIf="!rol.valid && rol.touched" class="alert alert-warning" role="alert">
                 Rol requerido!
               </div>
