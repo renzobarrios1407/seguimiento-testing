@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-header">
+    Carta de Certificación
+  </div>
+  <div class="card-body">
+    <div *ngIf="cartaDeCertificacion?.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{cartaDeCertificacion.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="cartaDeCertificacion.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Último formato de carta</th>
+            <td>{{cartaDeCertificacion.ultimoFormatoDeCarta}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="ultimoFormatoDeCarta" name="ultimoFormatoDeCarta" required> </td>
+          </tr>
+          <tr>
+            <th>Estándar de nombramiento</th>
+            <td>{{cartaDeCertificacion.estandarDeNombramiento}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarDeNombramiento" name="estandarDeNombramiento" required> </td>
+          </tr>
+          <tr>
+            <th>Diligenciamiento completo de campos en la Carta</th>
+            <td>{{cartaDeCertificacion.diligenCompletoCamposCarta}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="diligenCompletoCamposCarta" name="diligenCompletoCamposCarta" required> </td>
+          </tr>
+          <tr>
+            <th>Concepto de pruebas Especializadas en la carta</th>
+            <td>{{cartaDeCertificacion.concptPruebasEspecialiCarta}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="concptPruebasEspecialiCarta" name="concptPruebasEspecialiCarta" required> </td>
+          </tr>
+          <tr>
+            <th>Aprobación en carta</th>
+            <td>{{cartaDeCertificacion.aprobacionEnCarta}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="aprobacionEnCarta" name="aprobacionEnCarta" required> </td>
+          </tr>
+          <tr>
+            <th>Número(s) de incidente(s) incluído(s) en carta de certificación</th>
+            <td>{{cartaDeCertificacion.numsIncidntsIncludsCartCert}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="numsIncidntsIncludsCartCert" name="numsIncidntsIncludsCartCert" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="cartaDeCertificacion.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

@@ -27,7 +27,7 @@ export class CartaCertificacionFormComponent implements OnInit {
     }
   }
   guardar() {
-    this.segService.saveCartaDeCerficicacion(this.seguimientoId, this.cartaDeCertificacion).subscribe(
+    this.segService.saveCartaDeCertificacion(this.seguimientoId, this.cartaDeCertificacion).subscribe(
       respuesta => {
         const errorMessage = <any>respuesta;
         if (errorMessage != null) {

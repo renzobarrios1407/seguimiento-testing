@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header">
+    Requirements
+  </div>
+  <div class="card-body">
+    <div *ngIf="requirements.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{requirements.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="requirements.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Tiene Alcance/Estrategia acorde al Sprint/Release finalizado</th>
+            <td>{{requirements.tieneAlcOEstratAcrdAlSprORelFin}}</td>
+            <td *ngIf="requirements.auditor===null">
+              <input type="checkbox" [(ngModel)]="tieneAlcOEstratAcrdAlSprORelFin" name="tieneAlcOEstratAcrdAlSprORelFin" required> </td>
+          </tr>
+          <tr>
+            <th>Tiene riesgos de producto por Sprint\Release</th>
+            <td>{{requirements.tieneRiesgosDeProdPorSprORel}}</td>
+            <td *ngIf="requirements.auditor===null">
+              <input type="checkbox" [(ngModel)]="tieneRiesgosDeProdPorSprORel" name="tieneRiesgosDeProdPorSprORel" required> </td>
+          </tr>
+          <tr>
+            <th>Tiene un analisis de riesgos acorde al alcance probado</th>
+            <td>{{requirements.tieneAnalisisRiesgosAcrdAlcProb}}</td>
+            <td *ngIf="requirements.auditor===null">
+              <input type="checkbox" [(ngModel)]="tieneAnalisisRiesgosAcrdAlcProb" name="tieneAnalisisRiesgosAcrdAlcProb" required> </td>
+          </tr>
+          <tr>
+            <th>Estado del Riesgo = Cerrado</th>
+            <td>{{requirements.estadoRiesgoEqCerrado}}</td>
+            <td *ngIf="requirements.auditor===null">
+              <input type="checkbox" [(ngModel)]="estadoRiesgoEqCerrado" name="estadoRiesgoEqCerrado" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="requirements.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

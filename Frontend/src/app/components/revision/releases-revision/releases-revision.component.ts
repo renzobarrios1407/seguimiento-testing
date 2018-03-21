@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Releases } from '../../../models/releases';
 import { RevisionService } from '../../../services/revision/revision.service';
 import { Usuario } from '../../../models/usuario';
@@ -10,6 +10,7 @@ import { Usuario } from '../../../models/usuario';
 })
 export class ReleasesRevisionComponent implements OnInit {
   @Input() releases: Releases;
+  @Output() releasesChange = new EventEmitter<Releases>();
   @Input() auditor: Usuario;
   mensaje: string;
   idReleaseQC: boolean;
@@ -29,7 +30,7 @@ export class ReleasesRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.releases);
-    this.revisionService.aprovarReleases(this.releases.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarReleases(this.releases.id, this.auditor.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
@@ -37,6 +38,7 @@ export class ReleasesRevisionComponent implements OnInit {
         this.releases = respuesta['result'];
         this.releases.auditor = this.auditor;
         console.log(this.releases);
+        this.releasesChange.emit(this.releases);
       },
       error => {
         console.log(error);

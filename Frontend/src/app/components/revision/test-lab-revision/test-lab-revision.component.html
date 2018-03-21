@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header">
+    Test Lab
+  </div>
+  <div class="card-body">
+    <div *ngIf="testLab.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{testLab.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="testLab.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Los pasos de los casos de prueba están ejecutados</th>
+            <td>{{testLab.pasosDeCasosPruebaEjecutados}}</td>
+            <td *ngIf="testLab.auditor===null">
+              <input type="checkbox" [(ngModel)]="pasosDeCasosPruebaEjecutados" name="pasosDeCasosPruebaEjecutados" required> </td>
+          </tr>
+          <tr>
+            <th>Los casos de prueba tienen estado final</th>
+            <td>{{testLab.casosPruebaTienenEstadoFinal}}</td>
+            <td *ngIf="testLab.auditor===null">
+              <input type="checkbox" [(ngModel)]="casosPruebaTienenEstadoFinal" name="casosPruebaTienenEstadoFinal" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="testLab.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

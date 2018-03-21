@@ -35,6 +35,14 @@ import { RolService } from './services/rol/rol.service';
 import { RevisarSeguimientoComponent } from './components/revisar-seguimiento/revisar-seguimiento.component';
 import { ReleasesRevisionComponent } from './components/revision/releases-revision/releases-revision.component';
 import { RevisionService } from './services/revision/revision.service';
+import { RequirementsRevisionComponent } from './components/revision/requirements-revision/requirements-revision.component';
+import { TestLabRevisionComponent } from './components/revision/test-lab-revision/test-lab-revision.component';
+import { DefectsRevisionComponent } from './components/revision/defects-revision/defects-revision.component';
+import { AgendaAmbienteRevisionComponent } from './components/revision/agenda-ambiente-revision/agenda-ambiente-revision.component';
+import { CartaCertificacionRevisionComponent } from './components/revision/carta-certificacion-revision/carta-certificacion-revision.component';
+import { RepositorioRevisionComponent } from './components/revision/repositorio-revision/repositorio-revision.component';
+import { DodDdtVstsRevisionComponent } from './components/revision/dod-ddt-vsts-revision/dod-ddt-vsts-revision.component';
+import { UsdRevisionComponent } from './components/revision/usd-revision/usd-revision.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +63,15 @@ import { RevisionService } from './services/revision/revision.service';
     SeguimientosComponent,
     RegistroComponent,
     RevisarSeguimientoComponent,
-    ReleasesRevisionComponent
+    ReleasesRevisionComponent,
+    RequirementsRevisionComponent,
+    TestLabRevisionComponent,
+    DefectsRevisionComponent,
+    AgendaAmbienteRevisionComponent,
+    CartaCertificacionRevisionComponent,
+    RepositorioRevisionComponent,
+    DodDdtVstsRevisionComponent,
+    UsdRevisionComponent
   ],
   imports: [
     BrowserModule,

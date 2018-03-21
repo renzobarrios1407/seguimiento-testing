@@ -1,4 +1,5 @@
 export class AgendaDeAmbiente {
+    auditor: any;
     constructor(
         public id?: number,
         // ID Agenda de ambiente

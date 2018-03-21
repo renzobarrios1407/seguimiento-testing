@@ -1,4 +1,5 @@
 export class CartaDeCertificacion {
+    auditor: any;
     constructor(
         public id?: number,
         // Último formato de carta

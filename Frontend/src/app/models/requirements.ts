@@ -1,4 +1,5 @@
 export class Requirements {
+    auditor: any;
     constructor(
         public id?: number,
         // Tiene Alcance/Estrategia acorde al Sprint/Release finalizado

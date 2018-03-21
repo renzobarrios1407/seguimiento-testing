@@ -1,4 +1,5 @@
 export class Usd {
+    auditor: any;
     constructor(
         public id?: number,
         // # de Orden de Cambio

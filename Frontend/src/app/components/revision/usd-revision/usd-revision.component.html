@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    Orden de cambio
+  </div>
+  <div class="card-body">
+    <div *ngIf="usd.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{usd.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="usd.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th># de Orden de Cambio</th>
+            <td>{{usd.numOrdenCambio}}</td>
+            <td *ngIf="usd.auditor===null">
+              <input type="checkbox" [(ngModel)]="numOrdenCambio" name="numOrdenCambio" required> </td>
+          </tr>
+          <tr>
+            <th>Campo Código Definición de Terminado</th>
+            <td>{{usd.campoCodDefTermi}}</td>
+            <td *ngIf="usd.auditor===null">
+              <input type="checkbox" [(ngModel)]="campoCodDefTermi" name="campoCodDefTermi" required> </td>
+          </tr>
+          <tr>
+            <th>Incidentes por Bugs en estado "Not Resolved"</th>
+            <td>{{usd.incdntsPorBugsEstNotResolved}}</td>
+            <td *ngIf="usd.auditor===null">
+              <input type="checkbox" [(ngModel)]="incdntsPorBugsEstNotResolved" name="incdntsPorBugsEstNotResolved" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="usd.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@ var revisar = function (req, res, next) {
                     auditor => {
                         instanceBloque.setAuditor(auditor).then(
                             result => {
-                                res.status(200).send({ mensaje: "Revisado con éxito" });
+                                res.status(200).send({ mensaje: "Revisado con éxito", result });
                             }
                         ).catch(
                             err => {
@@ -45,6 +45,8 @@ var guardar = function (req, res, next) {
     //     cartaDeCertificacion: this.cartaDeCertificacion
     //}
     var params = req.body;
+    console.log(params);
+    
     seguimiento.findById(params.seguimientoId)
         .then(seguimiento => {
             upsert.upsert(cartaDeCertificacion, params.cartaDeCertificacion, { id: params.cartaDeCertificacion.id })

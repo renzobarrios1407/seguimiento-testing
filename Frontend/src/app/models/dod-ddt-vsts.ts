@@ -1,4 +1,5 @@
 export class DoDDdTVSTS {
+    auditor: any;
     constructor(
         public id?: number,
         // DoD

@@ -61,18 +61,18 @@ export class SeguimientoService {
       seguimientoId,
       agendaDeAmbiente
     };
-    return this.http.post(this.url + '/guardar/cartaDeCerficicacion', JSON.stringify(datos), this.httpOptions);
+    return this.http.post(this.url + '/guardar/agendaDeAmbiente', JSON.stringify(datos), this.httpOptions);
   }
-  public saveCartaDeCerficicacion(seguimientoId: number | string, cartaDeCerficicacion: CartaDeCertificacion) {
+  public saveCartaDeCertificacion(seguimientoId: number | string, cartaDeCertificacion: CartaDeCertificacion) {
     // {
     //     seguimientoId: seguimiento.id,
-    //     cartaDeCerficicacion: this.cartaDeCerficicacion
+    //     cartaDeCertificacion: this.cartaDeCertificacion
     // }
     const datos = {
       seguimientoId,
-      cartaDeCerficicacion
+      cartaDeCertificacion
     };
-    return this.http.post(this.url + '/guardar/cartaDeCerficicacion', JSON.stringify(datos), this.httpOptions);
+    return this.http.post(this.url + '/guardar/cartaDeCertificacion', JSON.stringify(datos), this.httpOptions);
   }
   public saveDefects(seguimientoId: number | string, defects: Defects) {
     // {

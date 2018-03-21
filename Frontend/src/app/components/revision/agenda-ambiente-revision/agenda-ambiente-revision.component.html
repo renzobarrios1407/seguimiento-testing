@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    Agenda de ambiente
+  </div>
+  <div class="card-body">
+    <div *ngIf="agendaDeAmbiente.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{agendaDeAmbiente.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="agendaDeAmbiente.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>ID Agenda de ambiente</th>
+            <td>{{agendaDeAmbiente.iDAgendaDeAmbiente}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="iDAgendaDeAmbiente" name="iDAgendaDeAmbiente" required> </td>
+          </tr>
+          <tr>
+            <th>Última versión formato</th>
+            <td>{{agendaDeAmbiente.ultimaVersionFormato}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="ultimaVersionFormato" name="ultimaVersionFormato" required> </td>
+          </tr>
+          <tr>
+            <th>Estandar de nombramiento</th>
+            <td>{{agendaDeAmbiente.estandarDeNombramiento}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarDeNombramiento" name="estandarDeNombramiento" required> </td>
+          </tr>
+          <tr>
+            <th>Presenta agendamiento de ambientes y se encuentra en estado 'Aprobado'</th>
+            <td>{{agendaDeAmbiente.presntAgendDeAmbntsYSeEncntrEnEstAprob}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="presntAgendDeAmbntsYSeEncntrEnEstAprob" name="presntAgendDeAmbntsYSeEncntrEnEstAprob" required> </td>
+          </tr>
+          <tr>
+            <th>Diligenciamiento de sharepoint</th>
+            <td>{{agendaDeAmbiente.diligenDeSharepoint}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="diligenDeSharepoint" name="diligenDeSharepoint" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="agendaDeAmbiente.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

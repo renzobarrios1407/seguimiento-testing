@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-header">
+    Repositorio
+  </div>
+  <div class="card-body">
+    <div *ngIf="repositorio.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{repositorio.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="repositorio.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Ruta del repositorio</th>
+            <td>{{repositorio.rutaRepositorio}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="rutaRepositorio" name="rutaRepositorio" required> </td>
+          </tr>
+          <tr>
+            <th>Estándar de nombramiento</th>
+            <td>{{repositorio.estandarDeNombramiento}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarDeNombramiento" name="estandarDeNombramiento" required> </td>
+          </tr>
+          <tr>
+            <th>Carpeta y estructura de carpetas en repositorio</th>
+            <td>{{repositorio.carptYEstrucCarptsRepo}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="carptYEstrucCarptsRepo" name="carptYEstrucCarptsRepo" required> </td>
+          </tr>
+          <tr>
+            <th>Última versión formato Lista de Chequeo P.E.</th>
+            <td>{{repositorio.ultVerFormatListCheckPE}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="ultVerFormatListCheckPE" name="ultVerFormatListCheckPE" required> </td>
+          </tr>
+          <tr>
+            <th>Existe Lista de Chequeo P.E en la carpeta funcional (Sprint/Release)</th>
+            <td>{{repositorio.existeListCheckPEcarptFuncSprORel}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="existeListCheckPEcarptFuncSprORel" name="existeListCheckPEcarptFuncSprORel" required> </td>
+          </tr>
+          <tr>
+            <th>Aprobación de usuario en repositorio por Bugs en estado "Not Resolved"</th>
+            <td>{{repositorio.aprobUserRepoPorBugsEstNotResolved}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="aprobUserRepoPorBugsEstNotResolved" name="aprobUserRepoPorBugsEstNotResolved" required> </td>
+          </tr>
+          <tr>
+            <th>Última versión formato Matriz de riesgo para certificación sin pruebas</th>
+            <td>{{repositorio.ultVerFormatMatrizRiesgoCertSinPruebas}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="ultVerFormatMatrizRiesgoCertSinPruebas" name="ultVerFormatMatrizRiesgoCertSinPruebas" required> </td>
+          </tr>
+          <tr>
+            <th>Adjuntó Matriz de riesgo para certificación sin pruebas</th>
+            <td>{{repositorio.AdjuntMatrizRiesgoCertSinPruebas}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="AdjuntMatrizRiesgoCertSinPruebas" name="AdjuntMatrizRiesgoCertSinPruebas" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="repositorio.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

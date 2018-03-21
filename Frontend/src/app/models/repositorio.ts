@@ -1,4 +1,5 @@
 export class Repositorio {
+    auditor: any;
     constructor(
         public id?: number,
         // Ruta del repositorio

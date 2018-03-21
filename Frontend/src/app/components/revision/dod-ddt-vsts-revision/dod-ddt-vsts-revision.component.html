@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-header">
+    DoD/DdT(VSTS)
+  </div>
+  <div class="card-body">
+    <div *ngIf="doDDdTVSTS.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{doDDdTVSTS.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="doDDdTVSTS.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>DoD</th>
+            <td>{{doDDdTVSTS.doD}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="doD" name="doD" required> </td>
+          </tr>
+          <tr>
+            <th>Estandar de nombramiento de la carta en el DoD\Ddt</th>
+            <td>{{doDDdTVSTS.estandarDeNombCartDoDDdt}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarDeNombCartDoDDdt" name="estandarDeNombCartDoDDdt" required> </td>
+          </tr>
+          <tr>
+            <th>Existe Carta en el DoD</th>
+            <td>{{doDDdTVSTS.existCartDoD}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="existCartDoD" name="existCartDoD" required> </td>
+          </tr>
+          <tr>
+            <th>Tipo de carta en el DoD de acuerdo al tipo de certificación</th>
+            <td>{{doDDdTVSTS.tipoCartDoDAcrdTipoDeCert}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="tipoCartDoDAcrdTipoDeCert" name="tipoCartDoDAcrdTipoDeCert" required> </td>
+          </tr>
+          <tr>
+            <th>El DoD tiene la fecha de vencimiento de la carta y coincide con la que está en la carta</th>
+            <td>{{doDDdTVSTS.elDoDTieneFechaDeVencCartaYCoincdConCart}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="elDoDTieneFechaDeVencCartaYCoincdConCart" name="elDoDTieneFechaDeVencCartaYCoincdConCart" required> </td>
+          </tr>
+          <tr>
+            <th>Existe aprobación de usuario en el DoD</th>
+            <td>{{doDDdTVSTS.existeAprobUserEnDoD}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="existeAprobUserEnDoD" name="existeAprobUserEnDoD" required> </td>
+          </tr>
+          <tr>
+            <th>Existe aprobación de jefe de Certificación en el DoD</th>
+            <td>{{doDDdTVSTS.existeAprobJefeEnCertDoD}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="existeAprobJefeEnCertDoD" name="existeAprobJefeEnCertDoD" required> </td>
+          </tr>
+          <tr>
+            <th>Closed</th>
+            <td>{{doDDdTVSTS.closed}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="closed" name="closed" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="doDDdTVSTS.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>

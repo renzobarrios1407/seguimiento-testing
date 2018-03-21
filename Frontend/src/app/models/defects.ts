@@ -1,4 +1,5 @@
 export class Defects {
+    auditor: any;
     constructor(
         public id?: number,
         // Defecto detectado asignado al ciclo\sprint

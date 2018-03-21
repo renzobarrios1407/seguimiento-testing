@@ -1,4 +1,5 @@
 export class TestLab {
+    auditor: any;
     constructor(
         public id?: number,
         // Los pasos de los casos de prueba están ejecutados

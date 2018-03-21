@@ -22,7 +22,7 @@ export class RevisionService {
     this.url = GLOBAL.url + '/revision';
    }
 
-   public aprovarAgendaDeAmbiente(agendaDeAmbienteId: number | string, auditorId: number | string) {
+   public aprobarAgendaDeAmbiente(agendaDeAmbienteId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: agendaDeAmbienteId
@@ -30,7 +30,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/agendaDeAmbiente', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarRequirements(requirementsId: number | string, auditorId: number | string) {
+   public aprobarRequirements(requirementsId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: requirementsId
@@ -38,7 +38,7 @@ export class RevisionService {
     return this.http.put<Requirements>(this.url + '/requirements', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarCartaDeCertificacion(cartaDeCertificacionId: number | string, auditorId: number | string) {
+   public aprobarCartaDeCertificacion(cartaDeCertificacionId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: cartaDeCertificacionId
@@ -46,7 +46,7 @@ export class RevisionService {
     return this.http.put<CartaDeCertificacion>(this.url + '/cartaDeCertificacion', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarDefects(defectsId: number | string, auditorId: number | string) {
+   public aprobarDefects(defectsId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: defectsId
@@ -54,7 +54,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/defects', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarDoDDdTVSTS(doDDdTVSTSId: number | string, auditorId: number | string) {
+   public aprobarDoDDdTVSTS(doDDdTVSTSId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: doDDdTVSTSId
@@ -62,7 +62,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/doDDdTVSTS', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarRepositorio(repositorioId: number | string, auditorId: number | string) {
+   public aprobarRepositorio(repositorioId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: repositorioId
@@ -70,7 +70,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/repositorio', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarReleases(releasesId: number | string, auditorId: number | string) {
+   public aprobarReleases(releasesId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: releasesId
@@ -78,7 +78,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/releases', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarTestLab(testLabId: number | string, auditorId: number | string) {
+   public aprobarTestLab(testLabId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: testLabId
@@ -86,7 +86,7 @@ export class RevisionService {
     return this.http.put<Releases>(this.url + '/testLab', JSON.stringify(mensaje), this.httpOptions);
    }
 
-   public aprovarUsd(usdId: number | string, auditorId: number | string) {
+   public aprobarUsd(usdId: number | string, auditorId: number | string) {
     const mensaje = {
       auditorId: auditorId,
       id: usdId

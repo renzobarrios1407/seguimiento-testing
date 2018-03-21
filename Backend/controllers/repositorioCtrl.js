@@ -18,7 +18,7 @@ var revisar = function (req, res, next) {
                     auditor => {
                         instanceBloque.setAuditor(auditor).then(
                             result => {
-                                res.status(200).send({ mensaje: "Revisado con éxito" });
+                                res.status(200).send({ mensaje: "Revisado con éxito", result });
                             }
                         ).catch(
                             err => {

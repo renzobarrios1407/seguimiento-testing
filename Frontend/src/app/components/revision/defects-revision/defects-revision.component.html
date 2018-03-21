@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+    Requirements
+  </div>
+  <div class="card-body">
+    <div *ngIf="defects.auditor" class="alert alert-success" role="alert">
+      Aprobado por: {{defects.auditor.usuario}}
+    </div>
+    <form #formRevision="ngForm">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Atributo</th>
+            <th scope="col">Valor</th>
+            <th scope="col" *ngIf="defects.auditor===null">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Defecto detectado asignado al ciclo\sprint</th>
+            <td>{{defects.defectoDetectAsignAlCicOSpr}}</td>
+            <td *ngIf="defects.auditor===null">
+              <input type="checkbox" [(ngModel)]="defectoDetectAsignAlCicOSpr" name="defectoDetectAsignAlCicOSpr" required> </td>
+          </tr>
+          <tr>
+            <th>Defecto detectado asignado al release</th>
+            <td>{{defects.defectoDetectAsignAlRel}}</td>
+            <td *ngIf="defects.auditor===null">
+              <input type="checkbox" [(ngModel)]="defectoDetectAsignAlRel" name="defectoDetectAsignAlRel" required> </td>
+          </tr>
+          <tr>
+            <th>Los defectos encontrados tienen estado final</th>
+            <td>{{defects.defctsEncontTienenEstFinal}}</td>
+            <td *ngIf="defects.auditor===null">
+              <input type="checkbox" [(ngModel)]="defctsEncontTienenEstFinal" name="defctsEncontTienenEstFinal" required> </td>
+          </tr>
+          <tr>
+            <th>Defectos asignado a subject</th>
+            <td>{{defects.defctsAsignASubject}}</td>
+            <td *ngIf="defects.auditor===null">
+              <input type="checkbox" [(ngModel)]="defctsAsignASubject" name="defctsAsignASubject" required> </td>
+          </tr>
+          <tr>
+            <th>Análisis de riesgo por Bugs en estado "Not Resolved"</th>
+            <td>{{defects.analisisDeRiesgoxBugsEnEstNotResolved}}</td>
+            <td *ngIf="defects.auditor===null">
+              <input type="checkbox" [(ngModel)]="analisisDeRiesgoxBugsEnEstNotResolved" name="analisisDeRiesgoxBugsEnEstNotResolved" required> </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <button [disabled]="!formRevision.form.valid" *ngIf="defects.auditor===null" (click)="aprobar()" class="btn btn-success">Aprobar</button>
+
+    <div *ngIf="mensaje" class="alert alert-info" role="alert">
+      {{mensaje}}
+    </div>
+  </div>
+</div>
