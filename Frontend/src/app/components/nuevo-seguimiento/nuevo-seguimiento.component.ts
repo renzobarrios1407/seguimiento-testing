@@ -12,7 +12,6 @@ import { UsuarioService } from '../../services/usuario/usuario.service';
 })
 export class NuevoSeguimientoComponent implements OnInit {
 
-  tester: Usuario;
   titulo = 'Nuevo Seguimiento';
   seguimiento: Seguimiento;
   // @Output() seguimientoChange: EventEmitter<seguimiento>;
@@ -25,14 +24,14 @@ export class NuevoSeguimientoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tester = this.usuarioService.getIdentidad();
-    if (this.tester.rolId === 2) {
+    const tester = this.usuarioService.getIdentidad();
+    if (tester.rolId === 2) {
       this.router.navigate(['/seguimientos']);
     }
   }
   onClick() {
     console.log('submit');
-    this.segService.crearSeguimiento(this.seguimiento, this.tester.id).subscribe(
+    this.segService.crearSeguimiento(this.seguimiento).subscribe(
       seguimiento => {
         console.log('Seguimiento Creado');
         this.router.navigate(['/seguimiento', seguimiento.id]);

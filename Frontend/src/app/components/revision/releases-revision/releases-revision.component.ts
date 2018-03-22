@@ -11,7 +11,6 @@ import { Usuario } from '../../../models/usuario';
 export class ReleasesRevisionComponent implements OnInit {
   @Input() releases: Releases;
   @Output() releasesChange = new EventEmitter<Releases>();
-  @Input() auditor: Usuario;
   mensaje: string;
   idReleaseQC: boolean;
   estandarNomDeRelease: boolean;
@@ -30,13 +29,12 @@ export class ReleasesRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.releases);
-    this.revisionService.aprobarReleases(this.releases.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarReleases(this.releases.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.releases = respuesta['result'];
-        this.releases.auditor = this.auditor;
         console.log(this.releases);
         this.releasesChange.emit(this.releases);
       },

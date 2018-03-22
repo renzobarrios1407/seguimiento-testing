@@ -24,7 +24,7 @@ var guardarUsd = require("./usdCtrl").guardar;
 
 var crearSeguimiento = function (req, res, next) {
     console.log(req.body.seguimiento);
-    tester.findById(req.body.tester.id)
+    tester.findById(req.body.testerId)
         .then(tester => {
             seguimiento.create(req.body.seguimiento).then(
                 seguimiento => {
@@ -118,12 +118,9 @@ var getSeguimientos = function (req, res, next) {
     })
 };
 
- // será eliminada
+ // será eliminado o cambiado
 var guardarSeguimiento = function (req, res, next) {
     // {
-    //     tester: {
-    //       id: this.tester.id
-    //     },
     //     agendaDeAmbiente: this.agendaDeAmbiente,
     //     cartaDeCertificacion: this.cartaDeCertificacion,
     //     defects: this.defects,

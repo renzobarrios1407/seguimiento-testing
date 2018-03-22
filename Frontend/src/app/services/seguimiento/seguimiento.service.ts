@@ -11,6 +11,7 @@ import { Requirements } from '../../models/requirements';
 import { TestLab } from '../../models/test-lab';
 import { Usd } from '../../models/usd';
 import { Repositorio } from '../../models/repositorio';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable()
 export class SeguimientoService {
@@ -18,36 +19,39 @@ export class SeguimientoService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private usuarioService: UsuarioService) {
     this.url = GLOBAL.url + '/seguimiento';
   }
 
-  public crearSeguimiento(seguimiento: Seguimiento, idTester: string | number) {
+  public crearSeguimiento(seguimiento: Seguimiento) {
     const mensaje = {
-      tester: {
-        id: idTester
-      },
+      testerId: this.usuarioService.getIdentidad().id,
       seguimiento: seguimiento
     };
     return this.http.post<Seguimiento>(this.url + '/crear', JSON.stringify(mensaje), this.httpOptions);
   }
-  public getSeguimientoTester(idSeguimiento: string | number, testerId: string | number) {
-    return this.http.get(this.url + '/get/' + idSeguimiento + '/' + testerId, this.httpOptions);
-  }
+
   public getSeguimiento(idSeguimiento: string | number) {
-    return this.http.get(this.url + '/get/' + idSeguimiento, this.httpOptions);
-  }
-  public getSeguimientosTester(idTester: string | number) {
-    return this.http.get<Seguimiento[]>(this.url + '/getAll/' + idTester, this.httpOptions);
-  }
-  public getSeguimientos() {
-    return this.http.get<Seguimiento[]>(this.url + '/getAll', this.httpOptions);
+    let url = this.url + '/get/' + idSeguimiento;
+    const identidad = this.usuarioService.getIdentidad();
+    // si es tester, agregar el testerId
+    if (identidad.rolId === 1) {
+      url += '/' + identidad.id;
+    }
+    return this.http.get(url, this.httpOptions);
   }
 
-  // public saveSeguimiento(idSeguimiento: string | number, datos: any) {
-  //   return this.http.put(this.url + '/' + idSeguimiento , JSON.stringify(datos), this.httpOptions);
-  // }
-  public sendDataSeguimiento(idSeguimiento: string | number, datos: any) {
+  public getSeguimientos() {
+    let url = this.url + '/getAll';
+    const identidad = this.usuarioService.getIdentidad();
+    // si es tester, agregar el testerId
+    if (identidad.rolId === 1) {
+      url += '/' + identidad.id;
+    }
+    return this.http.get<Seguimiento[]>(url, this.httpOptions);
+  }
+  // será eliminado o cambiado
+  public saveSeguimiento(idSeguimiento: string | number, datos: any) {
     return this.http.post(this.url + '/guardar/' + idSeguimiento, JSON.stringify(datos), this.httpOptions);
   }
 

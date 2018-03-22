@@ -65,7 +65,7 @@ export class RevisarSeguimientoComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.router.navigate(['/nuevo-seguimiento']);
+        this.router.navigate(['/seguimientos']);
       });
     });
   }

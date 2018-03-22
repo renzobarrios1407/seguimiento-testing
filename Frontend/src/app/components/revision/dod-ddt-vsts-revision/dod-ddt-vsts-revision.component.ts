@@ -12,7 +12,6 @@ export class DodDdtVstsRevisionComponent implements OnInit {
 
   @Input() doDDdTVSTS: DoDDdTVSTS;
   @Output() doDDdTVSTSChange = new EventEmitter<DoDDdTVSTS>();
-  @Input() auditor: Usuario;
   mensaje: string;
   doD: boolean;
   estandarDeNombCartDoDDdt: boolean;
@@ -31,13 +30,12 @@ export class DodDdtVstsRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.doDDdTVSTS);
-    this.revisionService.aprobarDoDDdTVSTS(this.doDDdTVSTS.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarDoDDdTVSTS(this.doDDdTVSTS.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.doDDdTVSTS = respuesta['result'];
-        this.doDDdTVSTS.auditor = this.auditor;
         console.log(this.doDDdTVSTS);
         this.doDDdTVSTSChange.emit(this.doDDdTVSTS);
       },

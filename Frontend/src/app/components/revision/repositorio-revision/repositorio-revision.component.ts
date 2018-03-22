@@ -12,7 +12,6 @@ export class RepositorioRevisionComponent implements OnInit {
 
   @Input() repositorio: Repositorio;
   @Output() repositorioChange = new EventEmitter<Repositorio>();
-  @Input() auditor: Usuario;
   mensaje: string;
   rutaRepositorio: boolean;
   estandarDeNombramiento: boolean;
@@ -31,13 +30,12 @@ export class RepositorioRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.repositorio);
-    this.revisionService.aprobarRepositorio(this.repositorio.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarRepositorio(this.repositorio.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.repositorio = respuesta['result'];
-        this.repositorio.auditor = this.auditor;
         console.log(this.repositorio);
         this.repositorioChange.emit(this.repositorio);
       },

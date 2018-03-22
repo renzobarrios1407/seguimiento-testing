@@ -4,7 +4,8 @@ var revisionCtrl = require('../controllers/revisionCtrl');
 var autenticacion = require("../middlewares/autenticacion");
 
 
-router.put("/agendaDeAmbiente", autenticacion.comprobarAuth, revisionCtrl.revisarAgendaDeAmbiente);
+// router.put("/agendaDeAmbiente", autenticacion.comprobarAuth, revisionCtrl.revisarAgendaDeAmbiente);
+router.put("/agendaDeAmbiente", revisionCtrl.revisarAgendaDeAmbiente);
 router.put("/cartaDeCertificacion", revisionCtrl.revisarCartaDeCertificacion);
 router.put("/defects", revisionCtrl.revisarDefects);
 router.put("/doDDdTVSTS", revisionCtrl.revisarDoDDdTVSTS);

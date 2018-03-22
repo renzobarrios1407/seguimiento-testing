@@ -11,7 +11,6 @@ import { Usuario } from '../../../models/usuario';
 export class RequirementsRevisionComponent implements OnInit {
 
   @Input() requirements: Requirements;
-  @Input() auditor: Usuario;
   @Output() requirementsChange = new EventEmitter<Requirements>();
   mensaje: string;
   tieneAlcOEstratAcrdAlSprORelFin: boolean;
@@ -27,13 +26,12 @@ export class RequirementsRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.requirements);
-    this.revisionService.aprobarRequirements(this.requirements.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarRequirements(this.requirements.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.requirements = respuesta['result'];
-        this.requirements.auditor = this.auditor;
         console.log(this.requirements);
         this.requirementsChange.emit(this.requirements);
       },

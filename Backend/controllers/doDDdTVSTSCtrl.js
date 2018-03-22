@@ -17,7 +17,9 @@ var revisar = function (req, res, next) {
                 auditor.findById(req.body.auditorId).then(
                     auditor => {
                         instanceBloque.setAuditor(auditor).then(
-                            result => {
+                            bloque => {
+                                bloque.get({json: true}).auditor=auditor;
+                                var result = bloque.get({json: true});   
                                 res.status(200).send({ mensaje: "Revisado con éxito", result });
                             }
                         ).catch(

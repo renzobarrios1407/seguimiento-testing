@@ -11,7 +11,6 @@ import { RevisionService } from '../../../services/revision/revision.service';
 export class UsdRevisionComponent implements OnInit {
 
   @Input() usd: Usd;
-  @Input() auditor: Usuario;
   @Output() usdChange = new EventEmitter<Usd>();
   mensaje: string;
   numOrdenCambio: boolean;
@@ -26,13 +25,12 @@ export class UsdRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.usd);
-    this.revisionService.aprobarUsd(this.usd.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarUsd(this.usd.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.usd = respuesta['result'];
-        this.usd.auditor = this.auditor;
         console.log(this.usd);
         this.usdChange.emit(this.usd);
       },

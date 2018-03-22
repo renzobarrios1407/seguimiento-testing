@@ -11,7 +11,6 @@ import { RevisionService } from '../../../services/revision/revision.service';
 export class CartaCertificacionRevisionComponent implements OnInit {
 
   @Input() cartaDeCertificacion: CartaDeCertificacion;
-  @Input() auditor: Usuario;
   @Output() cartaDeCertificacionChange = new EventEmitter<CartaDeCertificacion>();
   mensaje: string;
   ultimoFormatoDeCarta: boolean;
@@ -29,13 +28,12 @@ export class CartaCertificacionRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.cartaDeCertificacion);
-    this.revisionService.aprobarCartaDeCertificacion(this.cartaDeCertificacion.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarCartaDeCertificacion(this.cartaDeCertificacion.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.cartaDeCertificacion = respuesta['result'];
-        this.cartaDeCertificacion.auditor = this.auditor;
         console.log(this.cartaDeCertificacion);
         this.cartaDeCertificacionChange.emit(this.cartaDeCertificacion);
       },

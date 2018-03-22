@@ -11,7 +11,6 @@ import { Usuario } from '../../../models/usuario';
 export class AgendaAmbienteRevisionComponent implements OnInit {
 
   @Input() agendaDeAmbiente: AgendaDeAmbiente;
-  @Input() auditor: Usuario;
   @Output() agendaDeAmbienteChange = new EventEmitter<AgendaDeAmbiente>();
   mensaje: string;
   iDAgendaDeAmbiente: boolean;
@@ -28,13 +27,12 @@ export class AgendaAmbienteRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.agendaDeAmbiente);
-    this.revisionService.aprobarAgendaDeAmbiente(this.agendaDeAmbiente.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarAgendaDeAmbiente(this.agendaDeAmbiente.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.agendaDeAmbiente = respuesta['result'];
-        this.agendaDeAmbiente.auditor = this.auditor;
         console.log(this.agendaDeAmbiente);
         this.agendaDeAmbienteChange.emit(this.agendaDeAmbiente);
       },

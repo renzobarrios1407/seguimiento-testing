@@ -19,22 +19,13 @@ export class SeguimientosComponent implements OnInit {
 
   ngOnInit() {
     this.identidad = this.usuarioService.getIdentidad();
-    if (this.identidad.rolId === 1) {
-      this.segService.getSeguimientosTester(this.identidad.id).subscribe(
+
+    this.segService.getSeguimientos().subscribe(
       resultado => {
         console.log(resultado);
         this.seguimientos = resultado;
       }
     );
-    }
-    if (this.identidad.rolId === 2) {
-      this.segService.getSeguimientos().subscribe(
-      resultado => {
-        console.log(resultado);
-        this.seguimientos = resultado;
-      }
-    );
-    }
   }
 
 }

@@ -11,7 +11,6 @@ import { RevisionService } from '../../../services/revision/revision.service';
 export class DefectsRevisionComponent implements OnInit {
 
   @Input() defects: Defects;
-  @Input() auditor: Usuario;
   @Output() defectsChange = new EventEmitter<Defects>();
   mensaje: string;
   defectoDetectAsignAlCicOSpr: boolean;
@@ -28,13 +27,12 @@ export class DefectsRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.defects);
-    this.revisionService.aprobarDefects(this.defects.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarDefects(this.defects.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.defects = respuesta['result'];
-        this.defects.auditor = this.auditor;
         console.log(this.defects);
         this.defectsChange.emit(this.defects);
       },

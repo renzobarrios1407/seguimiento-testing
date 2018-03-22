@@ -10,7 +10,6 @@ import { RevisionService } from '../../../services/revision/revision.service';
 })
 export class TestLabRevisionComponent implements OnInit {
   @Input() testLab: TestLab;
-  @Input() auditor: Usuario;
   @Output() testLabChange = new EventEmitter<TestLab>();
   mensaje: string;
   pasosDeCasosPruebaEjecutados: boolean;
@@ -24,13 +23,12 @@ export class TestLabRevisionComponent implements OnInit {
   }
   aprobar() {
     console.log(this.testLab);
-    this.revisionService.aprobarRequirements(this.testLab.id, this.auditor.id).subscribe(
+    this.revisionService.aprobarTestLab(this.testLab.id).subscribe(
       respuesta => {
         // agregar mensaje de éxito
         console.log(respuesta);
         this.mensaje = respuesta['mensaje'];
         this.testLab = respuesta['result'];
-        this.testLab.auditor = this.auditor;
         console.log(this.testLab);
         this.testLabChange.emit(this.testLab);
       },

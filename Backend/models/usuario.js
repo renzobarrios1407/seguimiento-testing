@@ -97,11 +97,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: {
                 args: true,
-                msg: "El usuario ya está registrado"
+                msg: "El email ya está registrado"
             },
             validate: {
                 isEmail: {
-                    msg: "Ingrese un correo valido"
+                    msg: "Ingrese un email valido"
                 }
             }
         },

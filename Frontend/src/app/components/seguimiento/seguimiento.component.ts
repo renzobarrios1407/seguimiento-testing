@@ -22,7 +22,6 @@ import { Usd } from '../../models/usd';
 })
 export class SeguimientoComponent implements OnInit {
   errorMessage: any;
-  tester: Usuario;
   seguimiento: Seguimiento;
   agendaDeAmbiente: AgendaDeAmbiente;
   cartaDeCertificacion: CartaDeCertificacion;
@@ -43,9 +42,8 @@ export class SeguimientoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tester = this.usuarioService.getIdentidad();
     this.route.params.subscribe(params => {
-      this.segService.getSeguimientoTester(params.id, this.tester.id).subscribe(
+      this.segService.getSeguimiento(params.id).subscribe(
         respuesta => {
           console.log(respuesta);
           this.seguimiento = respuesta['seguimiento'];
@@ -71,11 +69,9 @@ export class SeguimientoComponent implements OnInit {
   atras() {
     this.router.navigate(['/seguimientos']);
   }
+  // será eliminado o cambiado
   enviar() {
     const req = {
-      tester: {
-        id: this.tester.id
-      },
       agendaDeAmbiente: this.agendaDeAmbiente,
       cartaDeCertificacion: this.cartaDeCertificacion,
       defects: this.defects,
@@ -87,7 +83,7 @@ export class SeguimientoComponent implements OnInit {
       usd: this.usd
     };
 
-    this.segService.sendDataSeguimiento(this.seguimiento.id, req).subscribe(
+    this.segService.saveSeguimiento(this.seguimiento.id, req).subscribe(
       respuesta => {
         console.log(respuesta);
         this.router.navigate(['/seguimientos']);
