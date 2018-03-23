@@ -39,6 +39,7 @@ import { RequirementsRevisionComponent } from './components/revision/requirement
 import { TestLabRevisionComponent } from './components/revision/test-lab-revision/test-lab-revision.component';
 import { DefectsRevisionComponent } from './components/revision/defects-revision/defects-revision.component';
 import { AgendaAmbienteRevisionComponent } from './components/revision/agenda-ambiente-revision/agenda-ambiente-revision.component';
+// tslint:disable-next-line:max-line-length
 import { CartaCertificacionRevisionComponent } from './components/revision/carta-certificacion-revision/carta-certificacion-revision.component';
 import { RepositorioRevisionComponent } from './components/revision/repositorio-revision/repositorio-revision.component';
 import { DodDdtVstsRevisionComponent } from './components/revision/dod-ddt-vsts-revision/dod-ddt-vsts-revision.component';

@@ -48,8 +48,8 @@ export class RevisarSeguimientoComponent implements OnInit {
       this.router.navigate(['/seguimientos']);
     }
 
-    this.route.params.subscribe(params => {
-      this.segService.getSeguimiento(params.id).subscribe(
+    const id = this.route.snapshot.paramMap.get('id');
+      this.segService.getSeguimiento(id).subscribe(
         respuesta => {
         console.log(respuesta);
         this.seguimiento = respuesta['seguimiento'];
@@ -67,7 +67,6 @@ export class RevisarSeguimientoComponent implements OnInit {
         console.log(error);
         this.router.navigate(['/seguimientos']);
       });
-    });
   }
   atras() {
     this.router.navigate(['/seguimientos']);

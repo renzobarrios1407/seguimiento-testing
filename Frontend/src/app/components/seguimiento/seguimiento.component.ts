@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Usuario } from '../../models/usuario';
@@ -38,32 +37,32 @@ export class SeguimientoComponent implements OnInit {
     private usuarioService: UsuarioService,
     private router: Router
   ) {
-    this.seguimiento =  new Seguimiento();
+    this.seguimiento = new Seguimiento();
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.segService.getSeguimiento(params.id).subscribe(
-        respuesta => {
-          console.log(respuesta);
-          this.seguimiento = respuesta['seguimiento'];
-          // Crear los demás objetos si existen
+    const id = this.route.snapshot.paramMap.get('id');
+    this.segService.getSeguimiento(id).subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.seguimiento = respuesta['seguimiento'];
+        // Crear los demás objetos si existen
 
-          this.agendaDeAmbiente = (respuesta['agendaDeAmbiente']) ? respuesta['agendaDeAmbiente'] : new AgendaDeAmbiente();
-          this.cartaDeCertificacion = (respuesta['cartaDeCertificacion']) ? respuesta['cartaDeCertificacion'] : new CartaDeCertificacion();
-          this.defects = (respuesta['defects']) ? respuesta['defects'] : new Defects();
-          this.doDDdTVSTS = (respuesta['doDDdTVSTS']) ? respuesta['doDDdTVSTS'] : new DoDDdTVSTS();
-          this.releases = (respuesta['releases']) ? respuesta['releases'] : new Releases();
-          this.repositorio = (respuesta['repositorio']) ? respuesta['repositorio'] : new Repositorio();
-          this.requirements = (respuesta['requirements']) ? respuesta['requirements'] : new Requirements();
-          this.testLab = (respuesta['testLab']) ? respuesta['testLab'] : new TestLab();
-          this.usd = (respuesta['usd']) ? respuesta['usd'] : new Usd();
-        },
-        error => {
-          console.log('no existe el seguimiento');
-          this.router.navigate(['/nuevo-seguimiento']);
-        });
-    });
+        this.agendaDeAmbiente = (respuesta['agendaDeAmbiente']) ? respuesta['agendaDeAmbiente'] : new AgendaDeAmbiente();
+        this.cartaDeCertificacion = (respuesta['cartaDeCertificacion']) ? respuesta['cartaDeCertificacion'] : new CartaDeCertificacion();
+        this.defects = (respuesta['defects']) ? respuesta['defects'] : new Defects();
+        this.doDDdTVSTS = (respuesta['doDDdTVSTS']) ? respuesta['doDDdTVSTS'] : new DoDDdTVSTS();
+        this.releases = (respuesta['releases']) ? respuesta['releases'] : new Releases();
+        this.repositorio = (respuesta['repositorio']) ? respuesta['repositorio'] : new Repositorio();
+        this.requirements = (respuesta['requirements']) ? respuesta['requirements'] : new Requirements();
+        this.testLab = (respuesta['testLab']) ? respuesta['testLab'] : new TestLab();
+        this.usd = (respuesta['usd']) ? respuesta['usd'] : new Usd();
+      },
+      error => {
+        console.log('no existe el seguimiento');
+        this.router.navigate(['/nuevo-seguimiento']);
+      });
+
   }
 
   atras() {
