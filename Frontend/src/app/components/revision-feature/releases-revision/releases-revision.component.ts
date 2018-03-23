@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Releases } from '../../../models/releases';
 import { RevisionService } from '../../../services/revision/revision.service';
-import { Usuario } from '../../../models/usuario';
 
 @Component({
   selector: 'app-releases-revision',

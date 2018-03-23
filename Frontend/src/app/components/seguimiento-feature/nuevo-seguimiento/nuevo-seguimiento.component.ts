@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Seguimiento } from '../../models/seguimiento';
-import { Usuario } from '../../models/usuario';
-import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../services/usuario/usuario.service';
+import { Seguimiento } from '../../../models/seguimiento';
+import { SeguimientoService } from '../../../services/seguimiento/seguimiento.service';
+import { UsuarioService } from '../../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-nuevo-seguimiento',

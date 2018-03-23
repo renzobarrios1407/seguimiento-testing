@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario';
-import { Seguimiento } from '../../models/seguimiento';
-import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UsuarioService } from '../../services/usuario/usuario.service';
-import { AgendaDeAmbiente } from '../../models/agenda-de-ambiente';
-import { CartaDeCertificacion } from '../../models/carta-de-certificacion';
-import { Defects } from '../../models/defects';
-import { DoDDdTVSTS } from '../../models/dod-ddt-vsts';
-import { Releases } from '../../models/releases';
-import { Repositorio } from '../../models/repositorio';
-import { Requirements } from '../../models/requirements';
-import { TestLab } from '../../models/test-lab';
-import { Usd } from '../../models/usd';
+import { Usuario } from '../../../models/usuario';
+import { Seguimiento } from '../../../models/seguimiento';
+import { AgendaDeAmbiente } from '../../../models/agenda-de-ambiente';
+import { CartaDeCertificacion } from '../../../models/carta-de-certificacion';
+import { Defects } from '../../../models/defects';
+import { DoDDdTVSTS } from '../../../models/dod-ddt-vsts';
+import { Releases } from '../../../models/releases';
+import { Repositorio } from '../../../models/repositorio';
+import { Requirements } from '../../../models/requirements';
+import { TestLab } from '../../../models/test-lab';
+import { Usd } from '../../../models/usd';
+import { SeguimientoService } from '../../../services/seguimiento/seguimiento.service';
+import { UsuarioService } from '../../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-revisar-seguimiento',
@@ -43,6 +43,7 @@ export class RevisarSeguimientoComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Agregar CanActivate Guard
     this.auditor = this.usuarioService.getIdentidad();
     if (this.auditor.rolId === 1) {
       this.router.navigate(['/seguimientos']);
@@ -65,10 +66,10 @@ export class RevisarSeguimientoComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.router.navigate(['/seguimientos']);
+        this.router.navigate(['/revision-seguimientos']);
       });
   }
   atras() {
-    this.router.navigate(['/seguimientos']);
+    this.router.navigate(['/revision-seguimientos']);
   }
 }

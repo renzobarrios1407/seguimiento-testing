@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { SeguimientoService } from '../../services/seguimiento/seguimiento.service';
-import { UsuarioService } from '../../services/usuario/usuario.service';
-import { Usuario } from '../../models/usuario';
-import { Seguimiento } from '../../models/seguimiento';
-import { AgendaDeAmbiente } from '../../models/agenda-de-ambiente';
-import { CartaDeCertificacion } from '../../models/carta-de-certificacion';
-import { Defects } from '../../models/defects';
-import { DoDDdTVSTS } from '../../models/dod-ddt-vsts';
-import { Releases } from '../../models/releases';
-import { Repositorio } from '../../models/repositorio';
-import { Requirements } from '../../models/requirements';
-import { TestLab } from '../../models/test-lab';
-import { Usd } from '../../models/usd';
+import { Seguimiento } from '../../../models/seguimiento';
+import { AgendaDeAmbiente } from '../../../models/agenda-de-ambiente';
+import { CartaDeCertificacion } from '../../../models/carta-de-certificacion';
+import { Defects } from '../../../models/defects';
+import { DoDDdTVSTS } from '../../../models/dod-ddt-vsts';
+import { Releases } from '../../../models/releases';
+import { Repositorio } from '../../../models/repositorio';
+import { Requirements } from '../../../models/requirements';
+import { TestLab } from '../../../models/test-lab';
+import { Usd } from '../../../models/usd';
+import { SeguimientoService } from '../../../services/seguimiento/seguimiento.service';
+import { UsuarioService } from '../../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-seguimiento',
