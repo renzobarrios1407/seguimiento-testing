@@ -18,6 +18,7 @@ import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { NuevoSeguimientoComponent } from './nuevo-seguimiento/nuevo-seguimiento.component';
 import { ListSeguimientosComponent } from './list-seguimientos/list-seguimientos.component';
 import { SharedModule } from '../../shared.module';
+import { AuthSegGuard } from '../../guards/auth-seg.guard';
 
 
 @NgModule({
@@ -42,6 +43,8 @@ import { SharedModule } from '../../shared.module';
         SeguimientoRoutingModule
      ],
     exports: [],
-    providers: [],
+    providers: [
+        AuthSegGuard
+    ],
 })
 export class SeguimientoModule {}

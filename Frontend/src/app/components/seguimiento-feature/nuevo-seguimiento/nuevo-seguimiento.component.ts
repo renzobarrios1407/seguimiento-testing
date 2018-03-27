@@ -22,12 +22,7 @@ export class NuevoSeguimientoComponent implements OnInit {
     this.seguimiento = new Seguimiento();
   }
 
-  ngOnInit() {
-    const tester = this.usuarioService.getIdentidad();
-    if (tester.rolId === 2) {
-      this.router.navigate(['/seguimientos']);
-    }
-  }
+  ngOnInit() { }
   onClick() {
     console.log('submit');
     this.segService.crearSeguimiento(this.seguimiento).subscribe(

@@ -17,6 +17,7 @@ import { DodDdtVstsRevisionComponent } from './dod-ddt-vsts-revision/dod-ddt-vst
 import { UsdRevisionComponent } from './usd-revision/usd-revision.component';
 import { ListRevisionSeguimientosComponent } from './list-revision-seguimientos/list-revision-seguimientos.component';
 import { SharedModule } from '../../shared.module';
+import { AuthRevGuard } from '../../guards/auth-rev.guard';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,8 @@ import { SharedModule } from '../../shared.module';
         RevisionRoutingModule
      ],
     exports: [],
-    providers: [],
+    providers: [
+        AuthRevGuard
+    ],
 })
 export class RevisionModule {}

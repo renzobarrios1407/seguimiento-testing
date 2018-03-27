@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { NuevoSeguimientoComponent } from './nuevo-seguimiento/nuevo-seguimiento.component';
 import { ListSeguimientosComponent } from './list-seguimientos/list-seguimientos.component';
+import { AuthSegGuard } from '../../guards/auth-seg.guard';
 
 const seguimientoRoutes: Routes = [
-    { path: 'seguimiento/:id', component: SeguimientoComponent },
-    { path: 'nuevo-seguimiento', component: NuevoSeguimientoComponent },
-    { path: 'seguimientos', component: ListSeguimientosComponent },
+    { path: 'seguimiento/:id', component: SeguimientoComponent, canActivate: [AuthSegGuard] },
+    { path: 'nuevo-seguimiento', component: NuevoSeguimientoComponent, canActivate: [AuthSegGuard] },
+    { path: 'seguimientos', component: ListSeguimientosComponent, canActivate: [AuthSegGuard] },
 ];
 
 @NgModule({

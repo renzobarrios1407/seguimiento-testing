@@ -4,6 +4,7 @@ import { OpcionesService } from '../../services/opciones/opciones.service';
 import { Usuario } from '../../models/usuario';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { RolService } from '../../services/rol/rol.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   usuario: Usuario;
   errorMessage: string;
   constructor(
+    private router: Router,
     private opcionesService: OpcionesService,
     private usuarioService: UsuarioService,
     private rolService: RolService
@@ -58,9 +60,15 @@ export class LoginComponent implements OnInit {
                 // Agregar token al localStorage
                 this.usuarioService.setToken(this.token);
                 // Conseguir el token
-
                 console.log(this.token);
                 console.log(this.identidad);
+                if (this.identidad.rolId === 2) {
+                  this.router.navigate(['/revision-seguimientos']);
+                } else {
+                  if (this.identidad.rolId === 1) {
+                    this.router.navigate(['/seguimientos']);
+                  }
+                }
               }
             },
             error => {
