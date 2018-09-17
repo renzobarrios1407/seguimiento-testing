@@ -17,11 +17,17 @@
         </thead>
         <tbody>
           <tr>
-            <th>Defecto detectado asignado al ciclo\sprint</th>
-            <td>{{defects.defectoDetectAsignAlCicOSpr}}</td>
+            <th>Se tomo evidencia de los casos de prueba fallidos</th>
+            <td>{{defects.evidenciaCasosDePrueba}}</td>
             <td *ngIf="defects.auditor===null">
-              <input type="checkbox" [(ngModel)]="defectoDetectAsignAlCicOSpr" name="defectoDetectAsignAlCicOSpr" required> </td>
+              <input type="checkbox" [(ngModel)]="evidenciaCasosDePrueba" name="evidenciaCasosDePrueba" required> </td>
           </tr>
+          <tr>
+              <th>Defecto detectado asignado al ciclo\sprint</th>
+              <td>{{defects.defectoDetectAsignAlCicOSpr}}</td>
+              <td *ngIf="defects.auditor===null">
+                <input type="checkbox" [(ngModel)]="defectoDetectAsignAlCicOSpr" name="defectoDetectAsignAlCicOSpr" required> </td>
+            </tr>
           <tr>
             <th>Defecto detectado asignado al release</th>
             <td>{{defects.defectoDetectAsignAlRel}}</td>

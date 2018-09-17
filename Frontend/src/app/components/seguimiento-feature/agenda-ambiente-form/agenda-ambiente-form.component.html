@@ -3,13 +3,7 @@
   <div class="col-md-8 mx-auto padding">
     <form (ngSubmit)="guardar()">
       <div class="row align-items-end">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="iDAgendaDeAmbiente">ID Agenda de ambiente</label>
-            <input type="number" id="iDAgendaDeAmbiente" class="form-control" [(ngModel)]="agendaDeAmbiente.iDAgendaDeAmbiente" name="iDAgendaDeAmbiente"
-            />
-          </div>
-        </div>
+        
         <div class="col-sm-6">
           <div class="form-group">
             <label for="ultimaVersionFormato">Última versión formato</label>
@@ -37,6 +31,20 @@
           </div>
         </div>
         <app-title class="mx-auto" [titulo]="tituloSharePoint"></app-title>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="iDAgendaDeAmbiente">ID Agenda de ambiente</label>
+            <input type="number" id="iDAgendaDeAmbiente" class="form-control" [(ngModel)]="agendaDeAmbiente.iDAgendaDeAmbiente" name="iDAgendaDeAmbiente" />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="estandarDeNombramientoSharepoint">Estandar de nombramiento sharepoint</label>
+            <select id="estandarDeNombramientoSharepoint" class="custom-select" [(ngModel)]="agendaDeAmbiente.estandarDeNombramientoSharepoint" name="estandarDeNombramientoSharepoint">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
         <div class="col-sm-6">
           <div class="form-group">
             <label for="diligenDeSharepoint">Diligenciamiento de sharepoint</label>

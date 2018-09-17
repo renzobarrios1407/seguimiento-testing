@@ -21,6 +21,14 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
+            <label for="redaccionNombreDelAplicativo">redaccion del nombre del aplicativo en la portada</label>
+            <select id="redaccionNombreDelAplicativo" class="custom-select form-control" [(ngModel)]="cartaDeCertificacion.redaccionNombreDelAplicativo" name="redaccionNombreDelAplicativo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="diligenCompletoCamposCarta">Diligenciamiento completo de campos en la Carta</label>
             <select id="diligenCompletoCamposCarta" class="custom-select" [(ngModel)]="cartaDeCertificacion.diligenCompletoCamposCarta" name="diligenCompletoCamposCarta">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>

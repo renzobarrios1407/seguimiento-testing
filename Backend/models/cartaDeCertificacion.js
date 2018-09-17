@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
             values: opciones,
             allowNull: false
         },
+        // redaccion del nombre del aplicativo en la portada
+        redaccionNombreDelAplicativo: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Diligenciamiento completo de campos en la Carta
         diligenCompletoCamposCarta: {
             type: DataTypes.ENUM,

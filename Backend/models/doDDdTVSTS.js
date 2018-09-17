@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         // Estandar de nombramiento de la carta en el DoD\Ddt
+        registroDeActividadesDeCertificacion: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // Estandar de nombramiento de la carta en el DoD\Ddt
         estandarDeNombCartDoDDdt: {
             type: DataTypes.ENUM,
             values: opciones,
@@ -46,8 +52,38 @@ module.exports = (sequelize, DataTypes) => {
             values: opciones,
             allowNull: false
         },
+        // adjunte la lista de chequeo de pruebas especializadas
+        listaChequeoPruebasEspecializadas: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // Matriz de riesgo (carta de certificacion con riesgos o o sin pruebas)
+        matrizDeRiesgo: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Existe aprobación de jefe de Certificación en el DoD
         existeAprobJefeEnCertDoD: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // adjunte correo y observacion de la aprobacion del P.O
+        correoYAprobacionDelPo: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // anexe concepto de pruebas especializadas
+        conceptoPruebasEspecializadas: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // anexe concepto de seguridad corporativa
+        ConceptoSeguridadCorporativa: {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false

@@ -16,12 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>ID Agenda de ambiente</th>
-            <td>{{agendaDeAmbiente.iDAgendaDeAmbiente}}</td>
-            <td *ngIf="agendaDeAmbiente.auditor===null">
-              <input type="checkbox" [(ngModel)]="iDAgendaDeAmbiente" name="iDAgendaDeAmbiente" required> </td>
-          </tr>
+          
           <tr>
             <th>Última versión formato</th>
             <td>{{agendaDeAmbiente.ultimaVersionFormato}}</td>
@@ -39,6 +34,18 @@
             <td>{{agendaDeAmbiente.presntAgendDeAmbntsYSeEncntrEnEstAprob}}</td>
             <td *ngIf="agendaDeAmbiente.auditor===null">
               <input type="checkbox" [(ngModel)]="presntAgendDeAmbntsYSeEncntrEnEstAprob" name="presntAgendDeAmbntsYSeEncntrEnEstAprob" required> </td>
+          </tr>
+          <tr>
+            <th>ID Agenda de ambiente</th>
+            <td>{{agendaDeAmbiente.iDAgendaDeAmbiente}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="iDAgendaDeAmbiente" name="iDAgendaDeAmbiente" required> </td>
+          </tr>
+          <tr>
+            <th>Estandar de nombramiento sharepoint</th>
+            <td>{{agendaDeAmbiente.estandarDeNombramientoSharepoint}}</td>
+            <td *ngIf="agendaDeAmbiente.auditor===null">
+              <input type="checkbox" [(ngModel)]="estandarDeNombramientoSharepoint" name="estandarDeNombramientoSharepoint" required> </td>
           </tr>
           <tr>
             <th>Diligenciamiento de sharepoint</th>

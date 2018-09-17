@@ -11,6 +11,14 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
+            <label for="registroDeActividadesDeCertificacion">Registro de actividades de certificacion</label>
+            <select id="registroDeActividadesDeCertificacion" class="custom-select form-control" [(ngModel)]="doDDdTVSTS.registroDeActividadesDeCertificacion" name="registroDeActividadesDeCertificacion">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="estandarDeNombCartDoDDdt">Estandar de nombramiento de la carta en el DoD\Ddt</label>
             <select id="estandarDeNombCartDoDDdt" class="custom-select form-control" [(ngModel)]="doDDdTVSTS.estandarDeNombCartDoDDdt" name="estandarDeNombCartDoDDdt">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
@@ -19,7 +27,7 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="existCartDoD">Existe Carta en el DoD</label>
+            <label for="existCartDoD">Existe Carta adjuntada en el DoD</label>
             <select id="existCartDoD" class="custom-select" [(ngModel)]="doDDdTVSTS.existCartDoD" name="existCartDoD">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
@@ -51,8 +59,48 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
+            <label for="listaChequeoPruebasEspecializadas">Adjuntado la lista de chequeo de pruebas especializadas</label>
+            <select id="listaChequeoPruebasEspecializadas" class="custom-select" [(ngModel)]="doDDdTVSTS.listaChequeoPruebasEspecializadas" name="listaChequeoPruebasEspecializadas">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="matrizDeRiesgo">Matriz de riesgo (carta de certificacion con riesgos o o sin pruebas)</label>
+            <select id="matrizDeRiesgo" class="custom-select" [(ngModel)]="doDDdTVSTS.matrizDeRiesgo" name="matrizDeRiesgo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="existeAprobJefeEnCertDoD">Existe aprobación de jefe de Certificación en el DoD</label>
             <select id="existeAprobJefeEnCertDoD" class="custom-select" [(ngModel)]="doDDdTVSTS.existeAprobJefeEnCertDoD" name="existeAprobJefeEnCertDoD">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="correoYAprobacionDelPo">Adjuntado correo y observacion de la aprobacion del P.O</label>
+            <select id="correoYAprobacionDelPo" class="custom-select" [(ngModel)]="doDDdTVSTS.correoYAprobacionDelPo" name="correoYAprobacionDelPo">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="conceptoPruebasEspecializadas">Anexado concepto de pruebas especializadas</label>
+            <select id="conceptoPruebasEspecializadas" class="custom-select" [(ngModel)]="doDDdTVSTS.conceptoPruebasEspecializadas" name="conceptoPruebasEspecializadas">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="ConceptoSeguridadCorporativa">Anexado concepto de seguridad corporativa</label>
+            <select id="ConceptoSeguridadCorporativa" class="custom-select" [(ngModel)]="doDDdTVSTS.ConceptoSeguridadCorporativa" name="ConceptoSeguridadCorporativa">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
           </div>

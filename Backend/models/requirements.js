@@ -27,6 +27,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false
+        },
+        // pase los documentos de la carpeta "en proceso" a "terminados"
+        requerimientosDeProcesosATerminados: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
         }
     });
 

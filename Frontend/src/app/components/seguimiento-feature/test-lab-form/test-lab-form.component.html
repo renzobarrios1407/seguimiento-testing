@@ -19,6 +19,17 @@
             </select>
           </div>
         </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="labDeProcesosATerminados">se paso de la carpeta "en proceso" a "terminados"</label>
+            <select id="labDeProcesosATerminados" class="custom-select form-control" [(ngModel)]="testLab.labDeProcesosATerminados" name="labDeProcesosATerminados">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+
+
       </div>
       <div class="row text-center mb-4">
         <div class="col-md-6 mx-auto">

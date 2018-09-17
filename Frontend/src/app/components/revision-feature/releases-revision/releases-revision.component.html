@@ -16,6 +16,12 @@
           </tr>
         </thead>
         <tbody>
+           <tr>
+             <th>Ruta QC</th>
+              <td>{{releases.rutaQC}}</td>
+              <td *ngIf="releases.auditor===null">
+                  <input type="checkbox" [(ngModel)]="rutaQC" name="rutaQC" required> </td>
+              </tr>
           <tr>
             <th>ID Release en QC</th>
             <td>{{releases.idReleaseQC}}</td>
@@ -35,16 +41,22 @@
               <input type="checkbox" [(ngModel)]="releaseIdEqAgendaAmbiente" name="releaseIdEqAgendaAmbiente" required> </td>
           </tr>
           <tr>
+              <th>Fecha de inicio y cierre</th>
+              <td>{{releases.fechaInicioYCierre}}</td>
+              <td *ngIf="releases.auditor===null">
+                <input type="checkbox" [(ngModel)]="fechaInicioYCierre" name="fechaInicioYCierre" required> </td>
+            </tr>
+          <tr>
             <th>Tiene Fecha Real Cierre</th>
             <td>{{releases.tieneFechaRealCierre}}</td>
             <td *ngIf="releases.auditor===null">
               <input type="checkbox" [(ngModel)]="tieneFechaRealCierre" name="tieneFechaRealCierre" required> </td>
           </tr>
           <tr>
-            <th>Tiene Definición de terminado en Sprint\Release</th>
-            <td>{{releases.tieneDefDeTermiEnSprORel}}</td>
+            <th> al release le tengo el numero del DoD en el sprint</th>
+            <td>{{releases.tieneElNumeroDelDodEnElSprint}}</td>
             <td *ngIf="releases.auditor===null">
-              <input type="checkbox" [(ngModel)]="tieneDefDeTermiEnSprORel" name="tieneDefDeTermiEnSprORel" required> </td>
+              <input type="checkbox" [(ngModel)]="tieneElNumeroDelDodEnElSprint" name="tieneElNumeroDelDodEnElSprint" required> </td>
           </tr>
           <tr>
             <th>Estado de Sprint</th>
@@ -64,6 +76,12 @@
             <td *ngIf="releases.auditor===null">
               <input type="checkbox" [(ngModel)]="carptsSetPruebasAsignsAlCiclo" name="carptsSetPruebasAsignsAlCiclo" required> </td>
           </tr>
+          <tr>
+              <th>paso de la carpeta "en proceso" a "terminados"</th>
+              <td>{{releases.carpetaDeProcesoATerminados}}</td>
+              <td *ngIf="releases.auditor===null">
+                <input type="checkbox" [(ngModel)]="carpetaDeProcesoATerminados" name="carpetaDeProcesoATerminados" required> </td>
+            </tr>
         </tbody>
       </table>
     </form>

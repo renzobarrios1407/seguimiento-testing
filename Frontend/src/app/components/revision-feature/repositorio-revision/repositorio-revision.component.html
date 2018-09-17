@@ -35,6 +35,12 @@
               <input type="checkbox" [(ngModel)]="carptYEstrucCarptsRepo" name="carptYEstrucCarptsRepo" required> </td>
           </tr>
           <tr>
+            <th>Adjunte los documentos de evidencias de los casos de prueba fallidos</th>
+            <td>{{repositorio.documentosEvidenciaCasosPruebaFallidos}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="documentosEvidenciaCasosPruebaFallidos" name="documentosEvidenciaCasosPruebaFallidos" required> </td>
+          </tr>
+          <tr>
             <th>Última versión formato Lista de Chequeo P.E.</th>
             <td>{{repositorio.ultVerFormatListCheckPE}}</td>
             <td *ngIf="repositorio.auditor===null">
@@ -63,6 +69,12 @@
             <td>{{repositorio.AdjuntMatrizRiesgoCertSinPruebas}}</td>
             <td *ngIf="repositorio.auditor===null">
               <input type="checkbox" [(ngModel)]="AdjuntMatrizRiesgoCertSinPruebas" name="AdjuntMatrizRiesgoCertSinPruebas" required> </td>
+          </tr>
+          <tr>
+            <th>pase de la carpeta "en proceso" a "terminados"</th>
+            <td>{{repositorio.AdjuntMatrizRiesgoCertSinPruebas}}</td>
+            <td *ngIf="repositorio.auditor===null">
+              <input type="checkbox" [(ngModel)]="deProcesosATerminados" name="deProcesosATerminados" required> </td>
           </tr>
         </tbody>
       </table>

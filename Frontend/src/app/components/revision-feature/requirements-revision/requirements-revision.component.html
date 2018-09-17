@@ -40,6 +40,12 @@
             <td *ngIf="requirements.auditor===null">
               <input type="checkbox" [(ngModel)]="estadoRiesgoEqCerrado" name="estadoRiesgoEqCerrado" required> </td>
           </tr>
+          <tr>
+            <th>pase de la carpeta "en proceso" a "terminados"</th>
+            <td>{{requirements.estadoRiesgoEqCerrado}}</td>
+            <td *ngIf="requirements.auditor===null">
+              <input type="checkbox" [(ngModel)]="requerimientosDeProcesosATerminados" name="requerimientosDeProcesosATerminados" required> </td>
+          </tr>
         </tbody>
       </table>
     </form>

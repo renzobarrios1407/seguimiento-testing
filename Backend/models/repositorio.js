@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
             values: opciones,
             allowNull: false
         },
+        // Adjunte los documentos de evidencias de los casos de prueba fallidos
+        documentosEvidenciaCasosPruebaFallidos: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Última versión formato Lista de Chequeo P.E.
         ultVerFormatListCheckPE: {
             type: DataTypes.ENUM,
@@ -47,6 +53,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         // Adjuntó Matriz de riesgo para certificación sin pruebas
         AdjuntMatrizRiesgoCertSinPruebas: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // pase los documentos de la carpeta "en proceso" a "terminados"
+        deProcesosATerminados: {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false

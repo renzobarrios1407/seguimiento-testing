@@ -15,7 +15,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false
+        },
+        // pase de carpeta "en procesos" a "terminados"
+        labDeProcesosATerminados: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
         }
+
     });
 
     TestLab.associate = function (models) {

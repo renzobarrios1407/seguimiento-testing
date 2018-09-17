@@ -28,6 +28,12 @@ module.exports = (sequelize, DataTypes) => {
             values: opciones,
             allowNull: false
         },
+        // Estandar de nombramiento sharepoint
+        estandarDeNombramientoSharepoint: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Presenta agendamiento de ambientes y se encuentra en estado 'Aprobado'
         presntAgendDeAmbntsYSeEncntrEnEstAprob: {
             type: DataTypes.ENUM,

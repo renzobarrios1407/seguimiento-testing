@@ -25,6 +25,16 @@
             </select>
           </div>
         </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="evidenciaCasosPruebaFallidos">Adjunte los documentos de evidencias de los casos de prueba fallidos</label>
+            <select id="evidenciaCasosPruebaFallidos" class="custom-select" [(ngModel)]="repositorio.documentosEvidenciaCasosPruebaFallidos" name="evidenciaCasosPruebaFallidos">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+
         <div class="col-sm-6">
           <div class="form-group">
             <label for="ultVerFormatListCheckPE">Última versión formato Lista de Chequeo P.E.</label>
@@ -65,6 +75,16 @@
             </select>
           </div>
         </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="deProcesosATerminados">pase los documentos de la carpeta "en proceso" a "terminados"</label>
+            <select id="deProcesosATerminados" class="custom-select" [(ngModel)]="repositorio.deProcesosATerminados" name="deProcesosATerminados">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+
       </div>
       <div class="row text-center mb-4">
         <div class="col-md-6 mx-auto">

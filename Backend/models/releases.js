@@ -4,6 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
     const Releases = sequelize.define('releases', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+
+        // Ruta del repositorio
+        rutaQC: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         // ID Release en QC
         idReleaseQC: {
             type: DataTypes.STRING,
@@ -28,19 +34,25 @@ module.exports = (sequelize, DataTypes) => {
             values: opciones,
             allowNull: false
         },
+        // Tiene Fecha de inicio y cierre
+        fechaInicioYCierre: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Tiene Fecha Real Cierre
         tieneFechaRealCierre: {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false
         },
-        // Tiene Definición de terminado en Sprint\Release
-        tieneDefDeTermiEnSprORel: {
+        // al release le tengo el numero del DoD en el sprint
+        tieneElNumeroDelDodEnElSprint: {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false
         },
-        // Estado de Sprint
+        // Estado de Sprint finalizado con carta
         estadoDeSprint: {
             type: DataTypes.ENUM,
             values: opciones,
@@ -54,6 +66,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         // Carpetas de set de pruebas asignadas al ciclo
         carptsSetPruebasAsignsAlCiclo: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
+        // paso de la carpeta "en proceso" a "terminados"
+        carpetaDeProcesoATerminados: {
             type: DataTypes.ENUM,
             values: opciones,
             allowNull: false

@@ -3,6 +3,12 @@
   <div class="col-md-8 mx-auto padding">
     <form (ngSubmit)="guardar()">
       <div class="row align-items-end">
+          <div class="col-sm-6">
+              <div class="form-group">
+                <label for="rutaQC">Ruta QC</label>
+                <input type="text" id="rutaQC" class="form-control" [(ngModel)]="releases.rutaQC" name="rutaQC" />
+              </div>
+            </div>
         <div class="col-sm-6">
           <div class="form-group">
             <label for="idReleaseQC">ID Release en QC</label>
@@ -27,6 +33,14 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
+            <label for="fechaInicioYCierre">Fecha de inicio y cierre</label>
+            <select id="fechaInicioYCierre" class="custom-select" [(ngModel)]="releases.fechaInicioYCierre" name="fechaInicioYCierre">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="tieneFechaRealCierre">Tiene Fecha Real Cierre</label>
             <select id="tieneFechaRealCierre" class="custom-select" [(ngModel)]="releases.tieneFechaRealCierre" name="tieneFechaRealCierre">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
@@ -35,15 +49,15 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="tieneDefDeTermiEnSprORel">Tiene Definición de terminado en Sprint\Release</label>
-            <select id="tieneDefDeTermiEnSprORel" class="custom-select" [(ngModel)]="releases.tieneDefDeTermiEnSprORel" name="tieneDefDeTermiEnSprORel">
+            <label for="tieneElNumeroDelDodEnElSprint">al release le tengo el numero del DoD en el sprint</label>
+            <select id="tieneElNumeroDelDodEnElSprint" class="custom-select" [(ngModel)]="releases.tieneElNumeroDelDodEnElSprint" name="tieneElNumeroDelDodEnElSprint">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="estadoDeSprint">Estado de Sprint</label>
+            <label for="estadoDeSprint">Estado de Sprint finalizado con carta</label>
             <select id="estadoDeSprint" class="custom-select" [(ngModel)]="releases.estadoDeSprint" name="estadoDeSprint">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
             </select>
@@ -65,6 +79,14 @@
             </select>
           </div>
         </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+              <label for="carpetaDeProcesoATerminados">paso de la carpeta "en proceso" a "terminados"</label>
+              <select id="carpetaDeProcesoATerminados" class="custom-select" [(ngModel)]="releases.carpetaDeProcesoATerminados" name="carpetaDeProcesoATerminados">
+                <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+              </select>
+            </div>
+          </div>
       </div>
       <div class="row text-center mb-4">
         <div class="col-md-6 mx-auto">

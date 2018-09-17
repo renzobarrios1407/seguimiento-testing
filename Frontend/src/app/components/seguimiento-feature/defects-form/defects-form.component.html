@@ -5,6 +5,14 @@
       <div class="row align-items-end">
         <div class="col-sm-6">
           <div class="form-group">
+            <label for="evidenciaCasosDePrueba">Se tomo evidencia de los casos de prueba fallidos</label>
+            <select id="evidenciaCasosDePrueba" class="custom-select form-control" [(ngModel)]="defects.evidenciaCasosDePrueba" name="evidenciaCasosDePrueba">
+              <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
             <label for="defectoDetectAsignAlCicOSpr">Defecto detectado asignado al ciclo\sprint</label>
             <select id="defectoDetectAsignAlCicOSpr" class="custom-select form-control" [(ngModel)]="defects.defectoDetectAsignAlCicOSpr" name="defectoDetectAsignAlCicOSpr">
               <option *ngFor="let opcion of opciones" [value]="opcion">{{opcion}}</option>

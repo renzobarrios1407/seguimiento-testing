@@ -5,6 +5,8 @@ export class TestLab {
         // Los pasos de los casos de prueba están ejecutados
         public pasosDeCasosPruebaEjecutados?: string,
         // Los casos de prueba tienen estado final
-        public casosPruebaTienenEstadoFinal?: string
+        public casosPruebaTienenEstadoFinal?: string,
+        // pase de la carpeta "en proceso" a "terminados"
+        public labDeProcesosATerminados?: string
     ) { }
 }

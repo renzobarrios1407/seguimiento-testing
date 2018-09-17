@@ -23,6 +23,12 @@
               <input type="checkbox" [(ngModel)]="doD" name="doD" required> </td>
           </tr>
           <tr>
+            <th>registro de actividades de certificacion</th>
+            <td>{{doDDdTVSTS.registroDeActividadesDeCertificacion}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="registroDeActividadesDeCertificacion" name="registroDeActividadesDeCertificacion" required> </td>
+          </tr>
+          <tr>
             <th>Estandar de nombramiento de la carta en el DoD\Ddt</th>
             <td>{{doDDdTVSTS.estandarDeNombCartDoDDdt}}</td>
             <td *ngIf="doDDdTVSTS.auditor===null">
@@ -53,10 +59,40 @@
               <input type="checkbox" [(ngModel)]="existeAprobUserEnDoD" name="existeAprobUserEnDoD" required> </td>
           </tr>
           <tr>
+            <th>adjuntado la lista de chequeo de pruebas especializadas</th>
+            <td>{{doDDdTVSTS.listaChequeoPruebasEspecializadas}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="listaChequeoPruebasEspecializadas" name="listaChequeoPruebasEspecializadas" required> </td>
+          </tr>
+          <tr>
+            <th>Matriz de riesgo (carta de certificacion con riesgos o o sin pruebas)</th>
+            <td>{{doDDdTVSTS.matrizDeRiesgo}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="matrizDeRiesgo" name="matrizDeRiesgo" required> </td>
+          </tr>
+          <tr>
             <th>Existe aprobación de jefe de Certificación en el DoD</th>
             <td>{{doDDdTVSTS.existeAprobJefeEnCertDoD}}</td>
             <td *ngIf="doDDdTVSTS.auditor===null">
               <input type="checkbox" [(ngModel)]="existeAprobJefeEnCertDoD" name="existeAprobJefeEnCertDoD" required> </td>
+          </tr>
+          <tr>
+            <th>adjunte correo y observacion de la aprobacion del P.O</th>
+            <td>{{doDDdTVSTS.correoYAprobacionDelPo}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="correoYAprobacionDelPo" name="correoYAprobacionDelPo" required> </td>
+          </tr>
+          <tr>
+            <th>anexado concepto de pruebas especializadas</th>
+            <td>{{doDDdTVSTS.conceptoPruebasEspecializadas}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="conceptoPruebasEspecializadas" name="conceptoPruebasEspecializadas" required> </td>
+          </tr>
+          <tr>
+            <th>anexe concepto de seguridad corporativa</th>
+            <td>{{doDDdTVSTS.ConceptoSeguridadCorporativa}}</td>
+            <td *ngIf="doDDdTVSTS.auditor===null">
+              <input type="checkbox" [(ngModel)]="ConceptoSeguridadCorporativa" name="ConceptoSeguridadCorporativa" required> </td>
           </tr>
           <tr>
             <th>Closed</th>

@@ -28,6 +28,12 @@
             <td *ngIf="testLab.auditor===null">
               <input type="checkbox" [(ngModel)]="casosPruebaTienenEstadoFinal" name="casosPruebaTienenEstadoFinal" required> </td>
           </tr>
+          <tr>
+            <th>se paso de la carpeta "en proceso" a "terminados"</th>
+            <td>{{testLab.labDeProcesosATerminados}}</td>
+            <td *ngIf="testLab.auditor===null">
+              <input type="checkbox" [(ngModel)]="labDeProcesosATerminados" name="labDeProcesosATerminados" required> </td>
+          </tr>
         </tbody>
       </table>
     </form>

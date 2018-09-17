@@ -9,6 +9,9 @@ export class Requirements {
         // Tiene un analisis de riesgos acorde al alcance probado
         public tieneAnalisisRiesgosAcrdAlcProb?: string,
         // Estado del Riesgo = Cerrado
-        public estadoRiesgoEqCerrado?: string
+        public estadoRiesgoEqCerrado?: string,
+        // pase los documentos de la carpeta "en proceso" a "terminados"
+        public requerimientosDeProcesosATerminados?: string
+        
     ) { }
 }

@@ -4,6 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     // const Solicitud = sequelize.import("solicitud", require('../models/solicitud'))
     const Defects = sequelize.define('defects', {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        //se tomo evidencia de los casos de prueba fallidos
+        evidenciaCasosDePrueba: {
+            type: DataTypes.ENUM,
+            values: opciones,
+            allowNull: false
+        },
         // Defecto detectado asignado al ciclo\sprint
         defectoDetectAsignAlCicOSpr: {
             type: DataTypes.ENUM,

@@ -29,6 +29,12 @@
               <input type="checkbox" [(ngModel)]="estandarDeNombramiento" name="estandarDeNombramiento" required> </td>
           </tr>
           <tr>
+            <th>redaccion del nombre del aplicativo en la portada</th>
+            <td>{{cartaDeCertificacion.estandarDeNombramiento}}</td>
+            <td *ngIf="cartaDeCertificacion.auditor===null">
+              <input type="checkbox" [(ngModel)]="redaccionNombreDelAplicativo" name="redaccionNombreDelAplicativo" required> </td>
+          </tr>
+          <tr>
             <th>Diligenciamiento completo de campos en la Carta</th>
             <td>{{cartaDeCertificacion.diligenCompletoCamposCarta}}</td>
             <td *ngIf="cartaDeCertificacion.auditor===null">
@@ -41,7 +47,7 @@
               <input type="checkbox" [(ngModel)]="concptPruebasEspecialiCarta" name="concptPruebasEspecialiCarta" required> </td>
           </tr>
           <tr>
-            <th>Aprobación en carta</th>
+            <th>digilenciado la aprobación del usuario en la carta</th>
             <td>{{cartaDeCertificacion.aprobacionEnCarta}}</td>
             <td *ngIf="cartaDeCertificacion.auditor===null">
               <input type="checkbox" [(ngModel)]="aprobacionEnCarta" name="aprobacionEnCarta" required> </td>

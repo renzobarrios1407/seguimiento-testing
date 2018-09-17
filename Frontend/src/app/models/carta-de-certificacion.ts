@@ -6,6 +6,8 @@ export class CartaDeCertificacion {
         public ultimoFormatoDeCarta?: string,
         // Estándar de nombramiento
         public estandarDeNombramiento?: string,
+        // redaccion en la portada del nombre del aplicativo
+        public redaccionNombreDelAplicativo?: string,
         // Diligenciamiento completo de campos en la Carta
         public diligenCompletoCamposCarta?: string,
         // Concepto de pruebas Especializadas en la carta

@@ -8,6 +8,8 @@ export class Repositorio {
         public estandarDeNombramiento?: string,
         // Carpeta y estructura de carpetas en repositorio
         public carptYEstrucCarptsRepo?: string,
+        // Adjunte los documentos de evidencias de los casos de prueba fallidos
+        public documentosEvidenciaCasosPruebaFallidos?: string,
         // Última versión formato Lista de Chequeo P.E.
         public ultVerFormatListCheckPE?: string,
         // Existe Lista de Chequeo P.E en la carpeta funcional (Sprint/Release)
@@ -17,6 +19,9 @@ export class Repositorio {
         // Última versión formato Matriz de riesgo para certificación sin pruebas
         public ultVerFormatMatrizRiesgoCertSinPruebas?: string,
         // Adjuntó Matriz de riesgo para certificación sin pruebas
-        public AdjuntMatrizRiesgoCertSinPruebas?: string
+        public AdjuntMatrizRiesgoCertSinPruebas?: string,
+        // pase los documentos de la carpeta "en proceso" a "terminados"
+        public deProcesosATerminados?: string
+
     ) { }
 }

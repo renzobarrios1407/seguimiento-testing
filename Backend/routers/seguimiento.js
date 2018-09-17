@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var seguimientoCtrl = require('../controllers/seguimientoCtrl');
+var autenticacion = require("../middlewares/autenticacion");
 
 router.post('/crear', seguimientoCtrl.crearSeguimiento );
 router.get('/get/:idSeguimiento/:testerId', seguimientoCtrl.getSeguimientoTester ); //ruta para obtener un seguimiento de un tester
